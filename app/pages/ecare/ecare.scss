@@ -1,0 +1,292 @@
+.ecare {
+
+  p {
+    margin: 20px 0;
+    line-height: 22px;
+    font-size: 16px;
+  }
+
+}
+.getting-started {
+
+  p {
+    margin: 20px 0;
+    line-height: 22px;
+    font-size: 16px;
+  }
+
+}
+@charset "utf-8";
+/*@import url("fonts.css");*/
+/* CSS Document */
+body {
+	color: #666666;
+	font-family: OmnesATT, Verdana, Helvetica, sans-serif;
+	background-size: cover;
+	padding: 10px;
+}
+
+#container {
+	width: 1024px;
+	margin: 0 auto;
+}
+
+.header {
+	padding: 20px 0;
+	margin: 0 auto;
+}
+
+.header img {
+	width: 97%;
+}
+
+#videoViewpor {
+	overflow: hidden;
+	width: 627px;
+	height: 381px;
+	box-shadow: 0 0 5px #777777;
+	margin-left: auto;
+	margin-right: auto;
+	//display: none;
+}
+.phone1 {
+	height: 300px;
+	padding-top: 25px;
+}
+.hd1 {
+	font-family: "Omnes_ATTMedium", Arial, sans-serif;
+}
+
+.hd2 {
+	font-family: "Omnes_ATTMediumItalic", Arial, sans-serif;
+}
+
+.white {
+	color: #fff;
+}
+
+.orange {
+	color: #ef6f00;
+}
+
+.purple {
+	color: #ca0180
+}
+
+.buttonsBlock {
+	float: right;
+	text-align: center;
+	width: 240px;
+	position: absolute;
+	top: 87px;
+	right: 37px;
+}
+
+.btn:active, .btn:visited, .btn:link {
+	margin: 10px 0;
+	padding: 11px 23px 13px 23px;
+	font-size: 18px;
+	font-family: "Omnes_ATTMediumItalic", sans-serif;
+	color: #FFFFFF;
+	font-weight: 800;
+	display: block;
+	text-decoration: none;
+	-webkit-border-radius: 10px;
+	-moz-border-radius: 10px;
+	border-radius: 10px;
+	text-shadow: 1px 1px 2px #333;
+	/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#0574ac+0,44c8f5+99 */
+	background: rgb(5, 116, 172); /* Old browsers */
+	background: -moz-linear-gradient(left, rgba(5, 116, 172, 1) 0%,
+		rgba(68, 200, 245, 1) 99%); /* FF3.6-15 */
+	background: -webkit-linear-gradient(left, rgba(5, 116, 172, 1) 0%,
+		rgba(68, 200, 245, 1) 99%); /* Chrome10-25,Safari5.1-6 */
+	background: linear-gradient(to right, rgba(5, 116, 172, 1) 0%,
+		rgba(68, 200, 245, 1) 99%);
+	/* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#0574ac',
+		endColorstr='#44c8f5', GradientType=1); /* IE6-9 */
+	zoom: 1;
+	-webkit-transition: all 200ms ease-in;
+	-webkit-transform: scale(1);
+	-ms-transition: all 200ms ease-in;
+	-ms-transform: scale(1);
+	-moz-transition: all 200ms ease-in;
+	-moz-transform: scale(1);
+	transition: all 200ms ease-in;
+	transform: scale(1);
+}
+
+.btn:hover {
+	z-index: 2;
+	-webkit-transition: all 200ms ease-in;
+	-webkit-transform: scale(1.5);
+	-ms-transition: all 200ms ease-in;
+	-ms-transform: scale(1.5);
+	-moz-transition: all 200ms ease-in;
+	-moz-transform: scale(1.5);
+	transition: all 200ms ease-in;
+	transform: scale(1.1);
+}
+
+.transferText {
+	position: absolute;
+	top: -8px;
+	left: 100px;
+	color: #ff9600;
+}
+
+.disclaimer {
+	color: #666666;
+	font-family: "Omnes_ATTMediumItalic", Arial, sans-serif;
+	font-size: 14px;
+	position: absolute;
+	left: 182px;
+	bottom: 20px;
+}
+
+.bulky {
+	font-size: 44px;
+	font-weight: 800;
+	line-height: 41px;
+	font-family: "Omnes_ATTMediumItalic", Arial, sans-serif;
+}
+
+.bulky2 {
+	font-size: 25px;
+	font-weight: 800;
+	top: 40px;
+	font-style: italic;
+}
+.webpagedivseg.showContent{
+	visibility: visible;
+	display:none;
+}
+.webpagedivseg {
+	display: none;
+	width: 100%;
+	height: 352px;
+	position: relative;
+	background: none;
+}
+
+#imagediv, #webpagediv {
+	float: left;
+}
+
+#footnotediv, #videoDiv {
+	float: left;
+	clear: left;
+}
+
+.atttvideoimg {
+	width: 100%;
+	height: 100%;
+}
+
+#ourvideo {
+	position: relative;
+	width: 100%;
+	height: 28px;
+}
+
+#webpagediv0 {
+	background-image: url(../images/pop0.png);
+	position: relative;
+	width: inherit;
+	background-repeat: no-repeat;
+	background-position: left top;
+	overflow: hidden;
+}
+
+.welcometxt {
+	color: #0989df;
+	font-weight: bold;
+	left: 20%;
+	position: absolute;
+	top: 50%;
+}
+
+.welcometxtAni {
+	animation-name: welcometxtAni;
+}
+
+@keyframes welcometxtAni { 0%{	top: 50%;}
+
+100%{top:2%;}
+}
+.stepNum {
+	left: 60%;
+	position: absolute;
+	top: 8%;
+	width: 200px;
+	color: #ef6f00;
+	font-size: 26px;
+}
+
+.phone {
+	left: 10%;
+	position: absolute;
+	top: 10%;
+	width: 300px;
+}
+
+.text {
+	left: 53%;
+	position: absolute;
+	top: 33%;
+	width: 288px;
+}
+
+.notes {
+	left: 53%;
+	position: absolute;
+	top: 63%;
+	width: 288px;
+	font-size: 14px;
+}
+
+.notes span {
+	display: block;
+}
+
+.notesAni {
+	animation-delay: 1s;
+	animation-name: flipInX;
+}
+
+.welcometxt1 {
+	color: #0989df;
+	font-weight: bold;
+	left: 10%;
+	position: absolute;
+	top: 2%;
+}
+
+.stepTxt {
+	color: #ef6f00;
+}
+
+.bold {
+	font-weight: bold;
+}
+
+.notes .title {
+	border-bottom: 1px solid #999;
+	font-size: 16px;
+	font-weight: bold;
+	padding-bottom: 2px;
+}
+
+
+.green {
+	bottom: -28%;
+	left: -8%;
+	position: absolute;
+}
+
+.blue {
+	top: -22%;
+	right: -9%;
+	position: absolute;
+}

@@ -1,0 +1,161 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > #videoViewport { 
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    box-shadow: 0 0 5px #777777;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+   // -webkit-transform: rotateZ(-90deg); /* Safari */
+//transform: rotateZ(-90deg);
+  }
+}
+
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+#videoDiv {
+  position: relative;
+	float: left;
+	clear: left;
+}
+
+#ourvideo {
+	position: absolute;
+  bottom: 0;
+	width: 100%;
+	height: 28px;
+}
+
+.webpagedivseg.showContent{
+	background-image: url(/img/pop0.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+  background-size: 100% 100%;
+	visibility: visible;
+	display:none;
+}
+
+.webpagedivseg {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background: none;
+}
+
+#webpagediv0 {
+	position: relative;
+	width: inherit;
+	overflow: hidden;
+}
+
+.welcometxt {
+  font-size: 4vw;
+	color: #0989df;
+	font-weight: bold;
+	left: 20%;
+	position: absolute;
+	top: 50%;
+}
+
+
+.welcometxt1 {
+  font-size: 4vw;
+	color: #0989df;
+	font-weight: bold;
+	left: 10%;
+	position: absolute;
+	top: 2%;
+}
+
+  .green-container {
+      bottom: -28%;
+      left: -8%;
+      position: absolute;
+    .green {
+      width: 100%;
+    }
+  }
+
+$break-small: 320px;
+$break-large: 640px;
+
+.green-container, .blue-container {
+  visibility: hidden;
+} 
+@media screen and (min-width: $break-large) {   
+  .green-container { 
+      visibility: visible;
+    bottom: -88px;
+    left: -73px;
+      position: absolute;
+  }
+  .blue-container {
+    visibility: visible;
+    top: -83px;
+    right: -30px;
+    position: absolute;
+  }
+  .phone-container {
+    width: 50%;
+    top: 5%;
+  }
+}
+.phone-container {
+  width: 40%;
+  top: 10%;
+  position: absolute;
+  height: auto;
+}
+
+  .phone1 {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 80%;
+   // padding-top: 25px;
+  }
+.text-container {
+   left: 35%;
+      top: 10%;
+      position: absolute;
+      width: 90%;
+      margin-right: 5%;
+      padding-right: 5%;
+      font-size: 3vw;
+    .stepNum {
+      position: relative;
+      color: #ef6f00;
+      font-size: 5vw;
+    }
+    .text {
+      margin-right: 30%;
+      padding-top: 15px;
+      position: relative;
+    }
+    .notes {
+      margin-right: 30%;
+      padding-top: 20px;
+      position: relative;
+    }
+}
+@media screen and (min-width: $break-large) {  
+  .text-container {
+      left: 33%;
+      position: absolute;
+  }
+}

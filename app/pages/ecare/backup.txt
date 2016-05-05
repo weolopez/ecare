@@ -1,0 +1,182 @@
+
+
+<!--div id="webpagediv0" class="webpagedivseg" style="display: block;">
+				</div>
+
+				<div id="webpagediv1" class="webpagedivseg">
+
+					<div class="welcometxt animate">Learn and customize the home screen</div>
+				</div>
+				<div id="webpagediv2" class="webpagedivseg">
+
+					<div class="welcometxt animate">Learn and customize the home screen</div>
+					<div class="">
+						<img class="animate green bubble" src="images/green.png">
+					</div>
+					<div class="">
+						<img class="animate blue bubble" src="images/bluecircle.png">
+					</div>
+				</div>
+				<div class="webpagedivseg" id="webpagediv3">
+					<div class="welcometxt1 animate" >Learn and customize the home screen</div>
+					<div class="">
+                            <img src="https://www.att.com/devicehowtomedia/image/5060/9006104_01.jpg" class="animate phone" >
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 1</h4>
+					</div>
+					<div class="text">To view notifications, swipe from the left to right on the clock screen.</div>
+					<div class="notes">
+					</div>
+					<div class="">
+						<img src="images/green.png" class="animate green" >
+					</div>
+					<div class="">
+						<img src="images/bluecircle.png" class="animate blue" >
+					</div>
+				</div>
+				<div class="webpagedivseg" id="webpagediv4">
+
+					<div class="welcometxt1 animate" >Search</div>
+					<div class="">
+						<img src="images/phone2.jpg" class="animate phone" >
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 2</h4>
+					</div>
+					<div class="text">A window will pop up. Tap the search field and enter your <span class="bold stepTxt">Desired search item</span>.Tap the <span class="bold stepTxt">Search icon</span>.</div>
+					<div class="">
+						<img src="images/green.png" class="animate green" >
+					</div>
+					<div class="">
+						<img src="images/bluecircle.png" class="animate blue" >
+					</div>
+				</div>
+				<div class="webpagedivseg" id="webpagediv5" >
+
+					<div class="welcometxt1 animate" >Search</div>
+					<div class="">
+						<img src="images/phone3.jpg" class="animate phone" >
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 3</h4>
+					</div>
+					<div class="text">
+						To perform a voice search, from the Home screen tap the  <span class="bold stepTxt">Microphone icon</span> or say
+						<span class="bold stepTxt">â€œOkay, Googleâ€ </span>  to begin.
+					</div>
+					
+					<div class="">
+						<img src="images/green.png" class="animate green" >
+					</div>
+					<div class="">
+						<img src="images/bluecircle.png" class="animate blue" >
+					</div>
+				</div>
+				<div class="webpagedivseg" id="webpagediv6">
+
+					<div class="welcometxt1 animate" >Search</div>
+					<div class="">
+						<img src="images/phone4.jpg" class="animate phone" >
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 4</h4>
+					</div>
+					<div class="text">To search, clearly say what you would like to search.</div>
+					<div class="">
+						<img src="images/green.png" class="animate green" >
+					</div>
+					<div class="">
+						<img src="images/bluecircle.png" class="animate blue">
+					</div>
+				</div>
+				<div class="webpagedivseg" id="webpagediv7">
+
+					<div class="welcometxt1 animate">Search</div>
+					<div class="">
+						<img src="images/phone5.jpg" class="animate phone" >
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 5</h4>
+					</div>
+					<div class="text">
+						Choose <span class="bold stepTxt">Notes</span> or <span class="bold stepTxt">X icon</span> on the search bar.
+					</div>
+					<div class="">
+						<img src="images/green.png" class="animate green" >
+					</div>
+					<div class="">
+						<img src="images/bluecircle.png" class="animate blue" >
+					</div>
+				</div>
+
+				<div class="webpagedivseg" id="webpagediv8">
+
+					<div class="welcometxt1 animate" >Search</div>
+					<div class="">
+						<img src="images/phone6.jpg" class="animate phone" >
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 6</h4>
+					</div>
+					<div class="text">
+						To access Google Search settings, tap the  <span class="bold stepTxt">Menu icon</span>.
+					</div>
+					<div class="">
+						<img src="images/green.png" class="animate green" >
+					</div>
+					<div class="">
+						<img src="images/bluecircle.png" class="animate blue" >
+					</div>
+				</div>
+
+				<div class="webpagedivseg" id="webpagediv9">
+
+					<div class="welcometxt1 animate" >Search</div>
+					<div class="">
+						<img src="images/phone7.jpg" class="animate phone" >
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 7</h4>
+					</div>
+					<div class="text">
+						Tap <span class="bold stepTxt">Settings</span>.
+					</div>
+					
+					<div class="">
+						<img src="images/green.png" class="animate green" >
+					</div>
+					<div class="">
+						<img src="images/bluecircle.png" class="animate blue" >
+					</div>
+				</div>
+				<div id="webpagediv10" class="webpagedivseg">
+
+					<div class="welcometxt1 animate">Search</div>
+					<div class="">
+						<img class="animate phone" src="images/phone8.jpg">
+					</div>
+					<div class="stepNum hd1">
+						<h4>Step - 8</h4>
+					</div>
+					<div class="text">
+						Edit <span
+							class="bold stepTxt">Desired Settings</span>.
+					</div>
+					
+					<div class="">
+						<img class="animate green" src="images/green.png">
+					</div>
+					<div class="">
+						<img class="animate blue" src="images/bluecircle.png">
+					</div>
+				</div>
+				<div id="videodiv">
+					<audio id="ourvideo" controls height="1px">
+						<source src="ecare_1500004571.wav">
+					</audio>
+
+				</div>
+			</div>
+		</div>
+	</div-->

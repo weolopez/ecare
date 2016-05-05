@@ -1,0 +1,21 @@
+{
+  "name": "ecarepoc",
+  "description": "ecarepoc: An Ionic project",
+  "main": "",
+  "authors": [
+    "Lopez",
+    "Mauricio (ml5174) <ml5174@att.com>"
+  ],
+  "license": "MIT",
+  "moduleType": [
+    "es6"
+  ],
+  "homepage": "",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}

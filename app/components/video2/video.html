@@ -1,0 +1,50 @@
+<div class="sixteen-nine">
+  <div id="videoViewport">
+      <div id="webpagediv0" class="webpagedivseg" style="display: block;">
+      </div>
+
+      <div id="webpagediv1" class="webpagedivseg">
+
+        <div class="welcometxt animate">{{data.articleName}}</div>
+      </div>
+
+      <div id="webpagediv2" class="webpagedivseg">
+
+        <div class="welcometxt animate">{{data.articleName}}</div>
+        <div class="">
+          <img class="animate green bubble" src="img/green.png">
+        </div>
+        <div class="blue-container">
+          <img class="animate blue" src="img/bluecircle.png">
+        </div>
+      </div>
+
+      <div class="webpagedivseg" [attr.id]="'webpagediv'+(i+3)" *ngFor="#step of data.steps.step ; #i = index">
+        <div class="welcometxt1 animate">{{data.articleName}}</div>
+        <div class="phone-container">
+          <img class="animate phone1" src="https://www.att.com/devicehowtomedia/image/{{step.imageLocation}}">
+        </div>
+        <div class="text-container">
+          <div class="stepNum hd1">
+            Step - {{step.stepOrder}}
+          </div>
+          <div class="text" [innerHTML]="step.stepContent"></div>
+          <div class="notes" *ngIf="step.stepNote" [innerHTML]="step.stepNote">
+          </div>
+        </div>
+        <div class="green-container" >
+          <img class="animate green" src="img/green.png" >
+        </div>
+        <div class="blue-container">
+          <img class="animate blue" src="img/bluecircle.png">
+        </div>
+      </div>
+
+
+      <div id="videodiv">
+        <audio id="ourvideo" controls height="1px">
+						<source src="iphone.wav">
+					</audio>
+      </div>
+  </div>
+</div>
