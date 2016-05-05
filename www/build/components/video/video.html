@@ -1,0 +1,228 @@
+<!--
+  Generated template for the Video component.
+
+  See https://angular.io/docs/ts/latest/api/core/ComponentMetadata-class.html
+  for more info on Angular 2 Components.
+-->
+
+<div id="videoViewport">
+  <div id="webpagediv0" class="webpagedivseg" style="display: block;">
+  </div>
+
+  <div id="webpagediv1" class="webpagedivseg">
+
+    <div class="welcometxt animate">{{data.articleName}}</div>
+  </div>
+
+  <div id="webpagediv2" class="webpagedivseg">
+
+    <div class="welcometxt animate">{{data.articleName}}</div>
+    <div class="">
+      <img class="animate green bubble" src="img/green.png">
+    </div>
+    <div class="">
+      <img class="animate blue bubble" src="img/bluecircle.png">
+    </div>
+  </div>
+
+  <div class="webpagedivseg" [attr.id]="'webpagediv'+(i+3)" *ngFor="#step of data.steps.step ; #i = index">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{step.imageLocation}}" class="animate phone1">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{step.stepOrder}}</h4>
+    </div>
+    <div class="text" [innerHTML]="step.stepContent"></div>
+    <div class="notes">
+
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <!--div class="webpagedivseg" id="webpagediv4">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[1].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[1].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[1].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <div class="webpagedivseg" id="webpagediv5">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[2].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[2].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[2].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <div class="webpagedivseg" id="webpagediv6">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[3].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[3].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[3].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <div class="webpagedivseg" id="webpagediv7">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[4].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[4].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[4].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <div class="webpagedivseg" id="webpagediv8">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[5].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[5].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[5].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <div class="webpagedivseg" id="webpagediv9">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[6].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[6].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[6].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <div id="webpagediv10" class="webpagedivseg">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[7].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[7].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[7].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+
+  <div id="webpagediv11" class="webpagedivseg">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[8].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[8].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[8].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div>
+  
+  <div id="webpagediv12" class="webpagedivseg">
+    <div class="welcometxt1 animate">{{data.articleName}}</div>
+    <div class="">
+      <img src="https://www.att.com/devicehowtomedia/image/{{data.steps.step[9].imageLocation}}" class="animate phone">
+    </div>
+    <div class="stepNum hd1">
+      <h4>Step - {{data.steps.step[9].stepOrder}}</h4>
+    </div>
+    <div class="text">{{data.steps.step[9].stepContent}}</div>
+    <div class="notes">
+    </div>
+    <div class="">
+      <img src="img/green.png" class="animate green">
+    </div>
+    <div class="">
+      <img src="img/bluecircle.png" class="animate blue">
+    </div>
+  </div-->
+
+  <div id="videodiv">
+    <audio id="ourvideo" controls height="1px">
+						<!--<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.mp4"> -->
+						<!--<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.ogv"> -->
+						<!--<source src="http://videos.mozilla.org/serv/webmademovies/popcornplug.webm"> -->
+						<source src="ecare_1500004571.wav">
+					</audio>
+  </div>
+
+</div>
