@@ -8734,6 +8734,33 @@ body {
 	position: absolute;
 }
 */
+#window {
+  width: 500px;
+  height: auto;
+  resize: both;
+  overflow: auto; }
+
+.wrapper {
+  margin: 0 auto;
+  background: #CCC;
+  border-width: thick;
+  border-style: groove; }
+
+.h_iframe {
+  position: relative; }
+
+.h_iframe .ratio {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+.h_iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
 .sixteen-nine {
   position: relative; }
   .sixteen-nine:before {
@@ -8793,12 +8820,19 @@ body {
   top: 50%; }
 
 .welcometxt1 {
-  font-size: 4vw;
+  font-size: 3vw;
   color: #0989df;
   font-weight: bold;
   left: 10%;
   position: absolute;
   top: 2%; }
+
+.articleDescription {
+  color: #ef6f00;
+  font-size: 5vw;
+  position: absolute;
+  left: 20%;
+  top: 28%; }
 
 .green-container {
   bottom: -28%;
@@ -8838,13 +8872,13 @@ body {
   height: 80%; }
 
 .text-container {
-  left: 35%;
-  top: 10%;
+  left: 37%;
+  top: 15%;
   position: absolute;
   width: 90%;
   margin-right: 5%;
   padding-right: 5%;
-  font-size: 3vw; }
+  font-size: 2vw; }
   .text-container .stepNum {
     position: relative;
     color: #ef6f00;
@@ -8860,5 +8894,5 @@ body {
 
 @media screen and (min-width: 640px) {
   .text-container {
-    left: 33%;
+    left: 37%;
     position: absolute; } }

@@ -74,14 +74,20 @@
 
 
 .welcometxt1 {
-  font-size: 4vw;
+  font-size: 3vw;
 	color: #0989df;
 	font-weight: bold;
 	left: 10%;
 	position: absolute;
 	top: 2%;
 }
-
+.articleDescription {
+  color: #ef6f00;
+  font-size: 5vw;
+  position: absolute;
+	left: 20%;
+	top: 28%;
+}
   .green-container {
       bottom: -28%;
       left: -8%;
@@ -130,13 +136,13 @@ $break-large: 640px;
    // padding-top: 25px;
   }
 .text-container {
-   left: 35%;
-      top: 10%;
+   left: 37%;
+      top: 15%;
       position: absolute;
       width: 90%;
       margin-right: 5%;
       padding-right: 5%;
-      font-size: 3vw;
+      font-size: 2vw;
     .stepNum {
       position: relative;
       color: #ef6f00;
@@ -155,7 +161,7 @@ $break-large: 640px;
 }
 @media screen and (min-width: $break-large) {  
   .text-container {
-      left: 33%;
+      left: 37%;
       position: absolute;
   }
 }

@@ -2,6 +2,7 @@ import {App, IonicApp, Platform, MenuController} from 'ionic-angular';
 import {StatusBar} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {eCarePage} from './pages/ecare/ecare';
+import {IphonePage} from './pages/iphone/iphone';
 import {eCarePage2} from './pages/ecare2/ecare';
 import {ListPage} from './pages/list/list';
 
@@ -10,9 +11,10 @@ import {ListPage} from './pages/list/list';
   templateUrl: 'build/app.html',
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
-class MyApp {
+class eCare {
   // make HelloIonicPage the root (or first) page
-  rootPage: any = eCarePage2;
+  location = document.location;
+  rootPage: any;
   pages: Array<{title: string, component: any}>;
 
   constructor(
@@ -20,15 +22,21 @@ class MyApp {
     private platform: Platform,
     private menu: MenuController
   ) {
-    this.initializeApp();
+    var ecare = this;
+    
+    ecare.initializeApp();
 
     // set our app's pages
-    this.pages = [
+    ecare.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'SamsungR735A', component: eCarePage },
-      { title: 'iPhone', component: eCarePage2 },
+      { title: 'iPhone', component: IphonePage },
       { title: 'My First List', component: ListPage }
     ];
+    if (document.location.search.length > 1)
+     ecare.rootPage = eCarePage2;
+    else
+     ecare.rootPage = HelloIonicPage;
   }
 
   initializeApp() {

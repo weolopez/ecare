@@ -11,8 +11,9 @@
       <div id="webpagediv2" class="webpagedivseg">
 
         <div class="welcometxt animate">{{data.articleName}}</div>
-        <div class="">
-          <img class="animate green bubble" src="img/green.png">
+        <div class="articleDescription">{{data.articleDescription}}</div>
+        <div class="green-container" >
+          <img class="animate green" src="img/green.png" >
         </div>
         <div class="blue-container">
           <img class="animate blue" src="img/bluecircle.png">
@@ -43,7 +44,7 @@
 
       <div id="videodiv">
         <audio id="ourvideo" controls height="1px">
-						<source src="iphone.wav">
+						<source [src]="articleFile">
 					</audio>
       </div>
   </div>
