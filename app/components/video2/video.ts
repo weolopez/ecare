@@ -1,12 +1,14 @@
 import {Component, Input} from 'angular2/core'; 
-import {ArticleService} from '../../services/article/article'
+import {ArticleService} from '../../services/article/article';
+import { Open } from '../open/open';
 
 declare var jQuery: JQueryStatic;
 
 @Component({
   selector: 'smart-video',
   templateUrl: 'build/components/video2/video.html',
-  providers: [ArticleService]
+  providers: [ArticleService],
+  directives: [Open]
 })
 export class Video {
   article: string;

@@ -30,7 +30,7 @@
             Step - {{step.stepOrder}}
           </div>
           <div class="text" [innerHTML]="step.stepContent"></div>
-          <div class="notes" *ngIf="step.stepNote" [innerHTML]="step.stepNote">
+          <div class="notes" open="_blank" *ngIf="step.stepNote" [innerHTML]="step.stepNote">
           </div>
         </div>
         <div class="green-container" >

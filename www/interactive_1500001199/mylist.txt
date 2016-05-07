@@ -1,0 +1,7 @@
+file 'C:\Users\ML5174\Documents\NetBeansProjects\smartvideo\..\ecarepoc\www\interactive_1500001199\PAUSE.wav' 
+file 'C:\Users\ML5174\Documents\NetBeansProjects\smartvideo\..\ecarepoc\www\interactive_1500001199\intro.wav' 
+file 'C:\Users\ML5174\Documents\NetBeansProjects\smartvideo\..\ecarepoc\www\interactive_1500001199\PAUSE.wav' 
+file 'C:\Users\ML5174\Documents\NetBeansProjects\smartvideo\..\ecarepoc\www\interactive_1500001199\introDescription.wav' 
+file 'C:\Users\ML5174\Documents\NetBeansProjects\smartvideo\..\ecarepoc\www\interactive_1500001199\PAUSE.wav' 
+file 'C:\Users\ML5174\Documents\NetBeansProjects\smartvideo\..\ecarepoc\www\interactive_1500001199\sentence1.wav' 
+
