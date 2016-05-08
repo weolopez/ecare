@@ -8735,6 +8735,7 @@ body {
 }
 */
 #window {
+  display: inline-block;
   width: 500px;
   height: auto;
   resize: both;
@@ -8760,6 +8761,12 @@ body {
   left: 0;
   width: 100%;
   height: 100%; }
+
+.full {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0; }
 
 .sixteen-nine {
   position: relative; }

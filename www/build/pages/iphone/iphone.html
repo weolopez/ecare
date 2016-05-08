@@ -4,17 +4,22 @@
   See http://ionicframework.com/docs/v2/components/#navigation for more info on
   Ionic pages and navigation.
 >
-<ion-navbar *navbar>
+<ion-navbar *navbar>(click)="winwidth='100%';pos='full'"
   <ion-title>iphone</ion-title>
 </ion-navbar>
 
-<ion-content padding class="iphone">
   
 </ion-content-->
+
+<ion-content padding style="height: 100%">
 <div id="container">
   <div class="header" menuToggle><img src="img/header.png">
   </div>
-  <div id="window">
+
+</div>
+
+<div  style="text-align: center" [class]="pos">    
+  <div id="window" [style.width]="winwidth">
     <div class="wrapper">
       <div class="h_iframe">
         <!-- a transparent image is preferable -->
@@ -24,3 +29,12 @@
     </div>
   </div>
 </div>
+
+  <ion-row style="position: absolute;bottom: 0;">
+    <button (click)="winwidth='320px'">iPhone 5SE portrate</button>
+    <button (click)="winwidth='568px'">iPhone 5SE</button>
+    <button (click)="winwidth='736px'">iPhone 6+</button>
+    <button (click)="winwidth='1024px'">iPad Pro</button>
+    <a href="http://localhost:8100/?article=1500001197"> <button >Full Screen</button></a>  
+  </ion-row>
+</ion-content>

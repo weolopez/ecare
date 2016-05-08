@@ -2,6 +2,7 @@
 
 }
 #window {
+    display: inline-block;
     width: 500px;
     height: auto;
     resize: both;
@@ -16,3 +17,10 @@
 .h_iframe        {position:relative;}
 .h_iframe .ratio {display:block;width:100%;height:auto;}
 .h_iframe iframe {position:absolute;top:0;left:0;width:100%; height:100%;}
+
+.full {
+    position: absolute;
+    width: 100%;
+    height: auto;
+    top:0;
+}

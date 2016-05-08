@@ -354,6 +354,7 @@ var ionic_angular_1 = require('ionic-angular');
 var IphonePage = (function () {
     function IphonePage(nav) {
         this.nav = nav;
+        this.winwidth = '568px';
     }
     IphonePage = __decorate([
         ionic_angular_1.Page({

@@ -10,5 +10,6 @@ import {Page, NavController} from 'ionic-angular';
   templateUrl: 'build/pages/iphone/iphone.html',
 })
 export class IphonePage {
+  winwidth: string='568px';
   constructor(public nav: NavController) {}
 }
