@@ -1,0 +1,45 @@
+.flexcontainer {
+    background: black;
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: row; /* works with row or column */
+   flex-direction: row;
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+   height: 500px;
+//    margin-left: 50px;
+    ion-content {
+        scroll-content {
+            overflow: hidden;
+        }
+    }
+}
+.flexcontainercolumn {
+   display: -webkit-flex;
+   display: flex;
+   -webkit-flex-direction: column; /* works with row or column */
+   flex-direction: column;
+   -webkit-align-items: center;
+   align-items: center;
+   -webkit-justify-content: center;
+   justify-content: center;
+   
+}
+
+   .url {
+       display: flex;
+       width: 100%;
+       height: 50px;
+       overflow: hidden;
+       padding: 0;
+       margin: 0;
+   }
+  #left-nav {
+       width: 768px;
+       margin: auto 0;
+   }
+    #url-container {
+        width: 50%;
+    }

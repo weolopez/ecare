@@ -8781,10 +8781,6 @@ body {
 #imagediv, #webpagediv {
   float: left; }
 
-.atttvideoimg {
-  width: 100%;
-  height: 100%; }
-
 .welcometxtAni {
   -webkit-animation-name: welcometxtAni;
   animation-name: welcometxtAni; }
@@ -8877,7 +8873,7 @@ body {
 */
 #window {
   display: inline-block;
-  width: 500px;
+  width: 100%;
   height: auto;
   resize: both;
   overflow: auto; }
@@ -9044,3 +9040,107 @@ body {
   .text-container {
     left: 37%;
     position: absolute; } }
+
+.atttvideoimg {
+  width: 100%;
+  height: 100%; }
+
+#iframe-window {
+  display: inline-block;
+  width: 100%;
+  height: auto;
+  resize: both;
+  overflow: hidden; }
+
+.wrapper {
+  width: 100%;
+  margin: 0 auto;
+  background: #CCC;
+  border-width: thick;
+  border-style: groove; }
+
+.h_iframe {
+  position: relative; }
+
+.h_iframe .ratio {
+  display: block;
+  width: 100%;
+  height: auto; }
+
+.h_iframe iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%; }
+
+.full {
+  position: absolute;
+  width: 100%;
+  height: auto;
+  top: 0; }
+
+iframe {
+  overflow-y: hidden; }
+
+.flexcontainer {
+  background: black;
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: row;
+  /* works with row or column */
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  height: 500px; }
+  .flexcontainer ion-content scroll-content {
+    overflow: hidden; }
+
+.flexcontainercolumn {
+  display: -webkit-flex;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-flex-direction: column;
+  /* works with row or column */
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-justify-content: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center; }
+
+.url {
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  height: 50px;
+  overflow: hidden;
+  padding: 0;
+  margin: 0; }
+
+#left-nav {
+  width: 768px;
+  margin: auto 0; }
+
+#url-container {
+  width: 50%; }
