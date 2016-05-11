@@ -3,15 +3,15 @@ import {StatusBar} from 'ionic-native';
 import {HelloIonicPage} from './pages/hello-ionic/hello-ionic';
 import {IphonePage} from './pages/iphone/iphone';
 import {URL} from './pages/url/url';
+import {VideoPage} from './pages/video/video';
 import {eCarePage2} from './pages/ecare2/ecare';
-import {ListPage} from './pages/list/list';
 
 
 @App({
   templateUrl: 'build/app.html',
   config: {} // http://ionicframework.com/docs/v2/api/config/Config/
 })
-class eCare {
+class Application {
   // make HelloIonicPage the root (or first) page
   location = document.location;
   rootPage: any;
@@ -22,21 +22,24 @@ class eCare {
     private platform: Platform,
     private menu: MenuController
   ) {
-    var ecare = this;
+    var application = this;
     
-    ecare.initializeApp();
+    application.initializeApp();
 
     // set our app's pages
-    ecare.pages = [
+    application.pages = [
       { title: 'Hello Ionic', component: HelloIonicPage },
       { title: 'iPhone', component: IphonePage },
       { title: 'URL', component: URL },
-      { title: 'My First List', component: ListPage }
+      { title: 'Video', component: VideoPage }
     ];
     if (document.location.search.length > 1)
-     ecare.rootPage = eCarePage2;
+      if (document.location.search.indexOf('article') > 0)
+        application.rootPage = eCarePage2;
+      else 
+        application.rootPage = VideoPage;
     else
-     ecare.rootPage = URL ;
+     application.rootPage = URL ;
   }
 
   initializeApp() {

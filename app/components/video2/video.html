@@ -43,9 +43,32 @@
 
 
       <div id="videodiv">
+        <!--smart-bar>
+        </smart-bar-->
         <audio id="ourvideo" controls="controls" height="1px">
 						<source [src]="articleFile">
 					</audio>
       </div>
+      
+<!--ion-toolbar position="bottom" id="smart-bar">
+  <ion-buttons begin>
+    <button royal>
+      <ion-icon name="list" *ngIf="!steps"></ion-icon>
+    </button>
+    <button royal (click)="play(!playing)">
+      <ion-icon name="play" *ngIf="!playing"></ion-icon>
+      <ion-icon name="pause" *ngIf="playing"></ion-icon>
+    </button>
+  </ion-buttons>
+  
+    <input id="scrubber" type="range" min="0" max="100">
+    
+  <ion-buttons end>
+    <button royal>
+      Send
+      <ion-icon name="send"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar-->
   </div>
 </div>

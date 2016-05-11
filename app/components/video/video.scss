@@ -1,0 +1,238 @@
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+  &:before {
+    display: block;
+    content: "";
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+  > #videoViewport { 
+    position: absolute;
+    background-color: white;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    overflow: hidden;
+    box-shadow: 0 0 5px #777777;
+    margin-left: auto;
+    margin-right: auto;
+    
+    
+   // -webkit-transform: rotateZ(-90deg); /* Safari */
+//transform: rotateZ(-90deg);
+  }
+}
+
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
+}
+#videoDiv {
+  position: relative;
+	float: left;
+	clear: left;
+}
+
+smart-barr {
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	background: black;
+	color: white;
+	width: 55px;
+	height: 55px;
+}
+#smart-bar {
+    bottom: 44px;
+    z-index: 10;
+    ion-buttons {
+      margin-top: 5px;
+    }
+input[type="range"] {
+    -webkit-appearance: none;
+    border: 1px solid black;
+    position: absolute;
+    top: 3px;
+    display: block;
+    width: 98%;
+    height: 5px;
+ 
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    border-radius: 20px;
+    background-color: #242323;
+    //left: 90px;
+ 
+    -webkit-box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
+    -moz-box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
+    box-shadow: inset 0px 4px 4px rgba(0,0,0,.6);
+}
+ 
+input::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 17px;
+    height: 17px;
+    margin-top: 5px;
+    border:1px solid black;
+ 
+    -webkit-border-radius: 10px;
+    border-radius: 10px;
+    background: #80e4df; 
+background: -webkit-linear-gradient(top, #80e4df 0%, #75dbd6 13%, #5ec4bf 33%, #57bbb6 47%, #419d99 80%, #378f8b 100%);
+ 
+    background: -moz-linear-gradient(top, #80e4df 0%, #75dbd6 13%, #5ec4bf 33%, #57bbb6 47%, #419d99 80%, #378f8b 100%);
+    background: -o-linear-gradient(top, #80e4df 0%, #75dbd6 13%, #5ec4bf 33%, #57bbb6 47%, #419d99 80%, #378f8b 100%);
+    background: linear-gradient(top, #80e4df 0%, #75dbd6 13%, #5ec4bf 33%, #57bbb6 47%, #419d99 80%, #378f8b 100%); 
+}
+}
+
+#ourvideo {
+	position: absolute;
+  bottom: 0;
+	width: 100%;
+	height: 28px;
+}
+
+/*
+.webpagedivseg.showContent{
+	background-image: url(/img/pop0.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+  background-size: 100% 100%;
+	visibility: visible;
+	display:none;
+}
+
+.webpagedivseg {
+	display: none;
+	width: 100%;
+	height: 100%;
+	position: relative;
+	background: none;
+}
+
+#webpagediv0 {
+	position: relative;
+	width: inherit;
+	overflow: hidden;
+}
+
+.welcometxt {
+  font-size: 4vw;
+	color: #0989df;
+	font-weight: bold;
+	left: 20%;
+	position: absolute;
+	top: 50%;
+}
+
+
+.welcometxt1 {
+  font-size: 3vw;
+	color: #0989df;
+	font-weight: bold;
+	left: 10%;
+	position: absolute;
+	top: 2%;
+}
+.articleDescription {
+  color: #ef6f00;
+  font-size: 5vw;
+  position: absolute;
+	left: 20%;
+	top: 28%;
+}
+  .green-container {
+      bottom: -28%;
+      left: -8%;
+      position: absolute;
+    .green {
+      width: 100%;
+    }
+  }
+
+$break-small: 320px;
+$break-large: 640px;
+
+.green-container, .blue-container {
+  visibility: hidden;
+} 
+@media screen and (min-width: $break-large) {   
+  .green-container { 
+      visibility: visible;
+    bottom: -88px;
+    left: -73px;
+      position: absolute;
+  }
+  .blue-container {
+    visibility: visible;
+    top: -83px;
+    right: -30px;
+    position: absolute;
+  }
+  .phone-container {
+    width: 50%;
+    top: 5%;
+  }
+}
+.phone-container {
+  width: 40%;
+  top: 10%;
+  position: absolute;
+  height: auto;
+}
+
+  .phone1 {
+    position: relative;
+    display: block;
+    width: 100%;
+    height: 80%;
+   // padding-top: 25px;
+  }
+.text-container {
+   left: 37%;
+      top: 15%;
+      position: absolute;
+      width: 90%;
+      margin-right: 5%;
+      padding-right: 5%;
+      font-size: 2vw;
+    .stepNum {
+      position: relative;
+      color: #ef6f00;
+      font-size: 5vw;
+    }
+    .text {
+      margin-right: 30%;
+      padding-top: 15px;
+      position: relative;
+    }
+    .notes {
+      margin-right: 30%;
+      padding-top: 20px;
+      position: relative;
+    }
+}
+@media screen and (min-width: $break-large) {  
+  .text-container {
+      left: 37%;
+      position: absolute;
+  }
+}
+
+
+
+
+.atttvideoimg {
+	width: 100%;
+	height: 100%;
+}
+*/
+
+#frame {
+	background-image: url(/img/pop0.png);
+	background-repeat: no-repeat;
+	background-position: left top;
+  background-size: 100% 100%;    
+  height: 100%;
+}

@@ -29,17 +29,17 @@
   <button menuToggle>
     <ion-icon name="menu"></ion-icon>
   </button>
-  <ion-title>eCare</ion-title>
+  <ion-title>Video</ion-title>
 </ion-navbar>
 
 <section id="left-nav" class="flexcontainer">
   <!--section class="flexcontainercolumn"-->
-  <ion-content>
+  <!--ion-content>
     <ion-list>
     <button class="url" *ngFor="#article of urllist"
             (click)="url=article.url">{{article.name}}</button>
     </ion-list>
-  </ion-content>
+  </ion-content-->
   <!--/section-->
   <section id="url-container">
   <weo-iframe [url]="url">

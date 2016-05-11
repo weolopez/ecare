@@ -14,53 +14,56 @@ var ionic_native_1 = require('ionic-native');
 var hello_ionic_1 = require('./pages/hello-ionic/hello-ionic');
 var iphone_1 = require('./pages/iphone/iphone');
 var url_1 = require('./pages/url/url');
+var video_1 = require('./pages/video/video');
 var ecare_1 = require('./pages/ecare2/ecare');
-var list_1 = require('./pages/list/list');
-var eCare = (function () {
-    function eCare(app, platform, menu) {
+var Application = (function () {
+    function Application(app, platform, menu) {
         this.app = app;
         this.platform = platform;
         this.menu = menu;
         // make HelloIonicPage the root (or first) page
         this.location = document.location;
-        var ecare = this;
-        ecare.initializeApp();
+        var application = this;
+        application.initializeApp();
         // set our app's pages
-        ecare.pages = [
+        application.pages = [
             { title: 'Hello Ionic', component: hello_ionic_1.HelloIonicPage },
             { title: 'iPhone', component: iphone_1.IphonePage },
             { title: 'URL', component: url_1.URL },
-            { title: 'My First List', component: list_1.ListPage }
+            { title: 'Video', component: video_1.VideoPage }
         ];
         if (document.location.search.length > 1)
-            ecare.rootPage = ecare_1.eCarePage2;
+            if (document.location.search.indexOf('article') > 0)
+                application.rootPage = ecare_1.eCarePage2;
+            else
+                application.rootPage = video_1.VideoPage;
         else
-            ecare.rootPage = url_1.URL;
+            application.rootPage = url_1.URL;
     }
-    eCare.prototype.initializeApp = function () {
+    Application.prototype.initializeApp = function () {
         this.platform.ready().then(function () {
             // Okay, so the platform is ready and our plugins are available.
             // Here you can do any higher level native things you might need.
             ionic_native_1.StatusBar.styleDefault();
         });
     };
-    eCare.prototype.openPage = function (page) {
+    Application.prototype.openPage = function (page) {
         // close the menu when clicking a link from the menu
         this.menu.close();
         // navigate to the new page if it is not the current page
         var nav = this.app.getComponent('nav');
         nav.setRoot(page.component);
     };
-    eCare = __decorate([
+    Application = __decorate([
         ionic_angular_1.App({
             templateUrl: 'build/app.html',
             config: {} // http://ionicframework.com/docs/v2/api/config/Config/
         }), 
         __metadata('design:paramtypes', [ionic_angular_1.IonicApp, ionic_angular_1.Platform, ionic_angular_1.MenuController])
-    ], eCare);
-    return eCare;
+    ], Application);
+    return Application;
 }());
-},{"./pages/ecare2/ecare":5,"./pages/hello-ionic/hello-ionic":6,"./pages/iphone/iphone":7,"./pages/list/list":9,"./pages/url/url":10,"ionic-angular":345,"ionic-native":367}],2:[function(require,module,exports){
+},{"./pages/ecare2/ecare":6,"./pages/hello-ionic/hello-ionic":7,"./pages/iphone/iphone":8,"./pages/url/url":9,"./pages/video/video":10,"ionic-angular":345,"ionic-native":367}],2:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -165,9 +168,19 @@ var Video = (function () {
                 "classname": "flipInY animated"
             }];
         this.data = { "topicId": "", "articleName": "", "articleDescription": "", "id": "", "steps": { "step": [{ "stepOrder": "1", "stepContent": "To check and manage data usage, from the home screen, tap <strong>Settings<\/strong>.", "stepNote": "To check your current month&#39;s data usage dial <strong>*data#<\/strong> (<strong>*3282#<\/strong>) on your mobile phone to receive a text message with the current bill cycle&#39;s usage.", "imageLocation": "5015/9006183_01.jpg", "frame": [2, 20] }, { "stepOrder": "2", "stepContent": "Tap <strong>Cellular<\/strong>.", "imageLocation": "5015/9006183_02.jpg", "frame": [20, 24] }, { "stepOrder": "3", "stepContent": "Scroll to view a list of apps and the amount of cellular data they have used.", "stepNote": "The amount of data displayed is the amount used since the statistics were last reset. To reset the statistics, scroll to the bottom, then tap <strong>Reset Statistics<\/strong>.", "imageLocation": "5015/9006183_03.jpg", "frame": [24, 41] }, { "stepOrder": "4", "stepContent": "To disable cellular data usage for an app, tap the <strong>Cellular data switch<\/strong> next to the app name.", "stepNote": "Learn more from Apple support article: <a href=\"https://support.apple.com/en-us/HT201299\">Learn about cellular data settings and usage on your iPhone<\/a>", "imageLocation": "5015/9006183_04.jpg", "frame": [41, 55] }, { "stepOrder": "5", "stepContent": "To turn <strong>Wi-Fi Assist<\/strong> (automatically use cellular data when Wi-Fi connectivity is poor) on or off, scroll to the bottom of the page, then tap the <strong>Wi-Fi Assist switch<\/strong>. &nbsp;<br />", "stepNote": "Wi-Fi Assist regularly checks the Wi-Fi connection to determine signal strength. If the Wi-Fi signal strength drops below a specific range, Wi-Fi Assist will automatically switch the session to cellular data until the Wi-Fi signal improves. &nbsp;Wi-Fi Assist is an optional setting that is turned on by default and can be turned off at any time. Data rates apply for cellular connections. Learn more from Apple support article: <a href=\"https://support.apple.com/en-us/HT205296\">About Wi-Fi Assist<\/a>", "imageLocation": "5015/9006183_05.jpg", "frame": [55, 57] }] }, "url": "http://www.att.com/devicehowto/index.jsp?id=interactive_1500001423&make=Apple&model=Apple6sPlus" };
+        this.playing = false;
         var video = this;
+        video.document = document;
         video.articleFile = './interactive_' + document.location.search.split('=')[1] + '/output.wav';
     }
+    Video.prototype.play = function (playing) {
+        var video = this;
+        video.playing = playing;
+        if (video.playing)
+            video.document.getElementById('ourvideo').play();
+        else
+            video.document.getElementById('ourvideo').pause();
+    };
     Video.prototype.getArticles = function () {
         var _this = this;
         var video = this;
@@ -185,15 +198,35 @@ var Video = (function () {
         });
         jQuery(document).ready(function () {
             var vid = document.getElementById("ourvideo");
+            var container = jQuery('.container');
+            var cover = jQuery('.cover');
+            var play = jQuery('#play');
+            var pause = jQuery('#pause');
+            var mute = jQuery('#mute');
+            var muted = jQuery('#muted');
+            var close = jQuery('#close');
+            var song = new Audio(VideoObject.articleFile);
+            var duration = song.duration;
             vid.onpause = function () {
+                VideoObject.playing = false;
                 jQuery('.animate').css('animation-play-state', 'paused');
             };
             vid.onplaying = function () {
+                VideoObject.playing = true;
                 jQuery('.animate').css('animation-play-state', 'running');
             };
             vid.onseeking = function () {
+                VideoObject.playing = false;
                 jQuery('.animate').css('animation-play-state', 'paused');
             };
+            jQuery("#scrubber").bind("change", function () {
+                song.currentTime = jQuery(this).val();
+                jQuery("#scrubber").attr("max", song.duration);
+            });
+            song.addEventListener('timeupdate', function () {
+                var curtime = parseInt(song.currentTime, 10);
+                jQuery("#seek").attr("value", curtime);
+            });
         });
     };
     Video.prototype.addFrame = function (index, start, end, animationClass) {
@@ -326,6 +359,96 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
+var core_1 = require('angular2/core');
+var Video = (function () {
+    function Video() {
+        this.song = new Audio('interactive_1500001197/output.wav');
+        this.scrubber = 0;
+        this.playing = false;
+        var video = this;
+    }
+    Video.prototype.play = function (playing) {
+        var video = this;
+        video.playing = playing;
+        if (video.playing)
+            video.song.play();
+        else
+            video.song.pause();
+    };
+    Video.prototype.scrub = function (e) {
+        var video = this;
+        var value = e.srcElement.value;
+        video.song.currentTime = value;
+        e.preventDefault();
+    };
+    Video.prototype.ngOnInit = function () {
+        var video = this;
+        video.song.addEventListener('timeupdate', function () {
+            video.curtime = parseInt(video.song.currentTime, 10);
+            video.scrubber = video.curtime;
+        });
+        video.play(true);
+        /*
+          //    var vid = document.getElementById("ourvideo");
+        
+              var container = document.getElementById('videoViewport');
+              
+              var duration = song.duration;
+        
+              song.onpause = function () {
+                video.playing = false;
+               // jQuery('.animate').css('animation-play-state', 'paused');
+              };
+              song.onplaying = function () {
+                video.playing = true;
+             //   jQuery('.animate').css('animation-play-state', 'running');
+              };
+              song.onseeking = function () {
+                video.playing = false;
+            //   jQuery('.animate').css('animation-play-state', 'paused');
+              };
+              
+           jQuery("#scrubber").bind("change", function () {
+                song.currentTime = jQuery(this).val();
+                jQuery("#scrubber").attr("max", song.duration);
+              });
+        
+              song.addEventListener('timeupdate', function () {
+                var curtime = parseInt(song.currentTime, 10);
+                jQuery("#seek").attr("value", curtime);
+              });*/
+    };
+    Video.prototype.addFrame = function (index, start, end, animationClass) {
+    };
+    Video.prototype.runVideo = function () {
+    };
+    Video.prototype.seconds = function (t) {
+        return (t % 60).toFixed(0);
+    };
+    Video.prototype.minutes = function (t) {
+        return ~~(t / 60);
+    };
+    Video = __decorate([
+        core_1.Component({
+            selector: 'smart-video',
+            templateUrl: 'build/components/video/video.html'
+        }), 
+        __metadata('design:paramtypes', [])
+    ], Video);
+    return Video;
+}());
+exports.Video = Video;
+},{"angular2/core":14}],6:[function(require,module,exports){
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
 var ionic_angular_1 = require('ionic-angular');
 var video_1 = require('../../components/video2/video');
 var eCarePage2 = (function () {
@@ -341,7 +464,7 @@ var eCarePage2 = (function () {
     return eCarePage2;
 }());
 exports.eCarePage2 = eCarePage2;
-},{"../../components/video2/video":4,"ionic-angular":345}],6:[function(require,module,exports){
+},{"../../components/video2/video":4,"ionic-angular":345}],7:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -365,7 +488,7 @@ var HelloIonicPage = (function () {
     return HelloIonicPage;
 }());
 exports.HelloIonicPage = HelloIonicPage;
-},{"ionic-angular":345}],7:[function(require,module,exports){
+},{"ionic-angular":345}],8:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -397,77 +520,7 @@ var IphonePage = (function () {
     return IphonePage;
 }());
 exports.IphonePage = IphonePage;
-},{"ionic-angular":345}],8:[function(require,module,exports){
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var ionic_angular_1 = require('ionic-angular');
-var ItemDetailsPage = (function () {
-    function ItemDetailsPage(nav, navParams) {
-        this.nav = nav;
-        // If we navigated to this page, we will have an item available as a nav param
-        this.selectedItem = navParams.get('item');
-    }
-    ItemDetailsPage = __decorate([
-        ionic_angular_1.Page({
-            templateUrl: 'build/pages/item-details/item-details.html'
-        }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController, ionic_angular_1.NavParams])
-    ], ItemDetailsPage);
-    return ItemDetailsPage;
-}());
-exports.ItemDetailsPage = ItemDetailsPage;
 },{"ionic-angular":345}],9:[function(require,module,exports){
-"use strict";
-var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
-    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
-    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
-    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
-    return c > 3 && r && Object.defineProperty(target, key, r), r;
-};
-var __metadata = (this && this.__metadata) || function (k, v) {
-    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
-};
-var ionic_angular_1 = require('ionic-angular');
-var item_details_1 = require('../item-details/item-details');
-var ListPage = (function () {
-    function ListPage(nav, navParams) {
-        this.nav = nav;
-        // If we navigated to this page, we will have an item available as a nav param
-        this.selectedItem = navParams.get('item');
-        this.icons = ['flask', 'wifi', 'beer', 'football', 'basketball', 'paper-plane',
-            'american-football', 'boat', 'bluetooth', 'build'];
-        this.items = [];
-        for (var i = 1; i < 11; i++) {
-            this.items.push({
-                title: 'Item ' + i,
-                note: 'This is item #' + i,
-                icon: this.icons[Math.floor(Math.random() * this.icons.length)]
-            });
-        }
-    }
-    ListPage.prototype.itemTapped = function (event, item) {
-        this.nav.push(item_details_1.ItemDetailsPage, {
-            item: item
-        });
-    };
-    ListPage = __decorate([
-        ionic_angular_1.Page({
-            templateUrl: 'build/pages/list/list.html'
-        }), 
-        __metadata('design:paramtypes', [ionic_angular_1.NavController, ionic_angular_1.NavParams])
-    ], ListPage);
-    return ListPage;
-}());
-exports.ListPage = ListPage;
-},{"../item-details/item-details":8,"ionic-angular":345}],10:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -490,7 +543,7 @@ var URL = (function () {
     function URL(nav) {
         this.nav = nav;
         this.winwidth = '320px';
-        this.url = "http://localhost:8100/?article=1500001197";
+        this.url = "http://localhost:8100/?video=1500001197";
         this.urllist = [
             {
                 name: "Set up Visual Voicemail",
@@ -532,7 +585,33 @@ var URL = (function () {
     return URL;
 }());
 exports.URL = URL;
-},{"../../components/iframe/iframe":2,"ionic-angular":345}],11:[function(require,module,exports){
+},{"../../components/iframe/iframe":2,"ionic-angular":345}],10:[function(require,module,exports){
+"use strict";
+var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
+    var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
+    if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
+    else for (var i = decorators.length - 1; i >= 0; i--) if (d = decorators[i]) r = (c < 3 ? d(r) : c > 3 ? d(target, key, r) : d(target, key)) || r;
+    return c > 3 && r && Object.defineProperty(target, key, r), r;
+};
+var __metadata = (this && this.__metadata) || function (k, v) {
+    if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
+};
+var ionic_angular_1 = require('ionic-angular');
+var video_1 = require('../../components/video/video');
+var VideoPage = (function () {
+    function VideoPage() {
+    }
+    VideoPage = __decorate([
+        ionic_angular_1.Page({
+            templateUrl: 'build/pages/video/video.html',
+            directives: [video_1.Video]
+        }), 
+        __metadata('design:paramtypes', [])
+    ], VideoPage);
+    return VideoPage;
+}());
+exports.VideoPage = VideoPage;
+},{"../../components/video/video":5,"ionic-angular":345}],11:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

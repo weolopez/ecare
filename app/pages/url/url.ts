@@ -13,7 +13,7 @@ import {Iframe} from '../../components/iframe/iframe';
 })
 export class URL {
   winwidth: string='320px';
-  url: string="http://localhost:8100/?article=1500001197";
+  url: string="http://localhost:8100/?video=1500001197";
   urllist: Array<any>=[
     {
       name: "Set up Visual Voicemail",

@@ -1,0 +1,32 @@
+<div class="sixteen-nine">
+  <div id="videoViewport">
+
+<section id="frame">
+</section> 
+      
+<ion-toolbar position="bottom" id="smart-bar">
+  
+  <input id="scrubber" (change)="scrub($event)" type="range" [min]="0" max="{{song.duration}}" [value]="scrubber">
+    
+  <ion-buttons begin>
+    <button royal>
+      <ion-icon name="list" *ngIf="!steps"></ion-icon>
+    </button>
+    <button royal (click)="play(!playing)">
+      <ion-icon name="play" *ngIf="!playing"></ion-icon>
+      <ion-icon name="pause" *ngIf="playing"></ion-icon>
+      {{minutes(song.currentTime)+':'+seconds(song.currentTime)}}/{{minutes(song.duration)+':'+seconds(song.duration)}}
+    </button>
+  </ion-buttons>
+  
+  <ion-buttons end>
+    <button royal>
+      <ion-icon name="ios-closed-captioning"></ion-icon>
+    </button>
+    <button royal>
+      <ion-icon name="ios-expand"></ion-icon>
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+  </div>
+</div>
