@@ -49,7 +49,9 @@ export class Video {
     this.articleService.getArticles()
       .subscribe(
       heroes => video.data = heroes,
-      error => this.errorMessage = <any>error);
+      error => this.errorMessage = <any>error,
+      VideoObject.runVideo())
+      ;
   }
 
   ngOnInit() {

@@ -1,32 +1,60 @@
 <div class="sixteen-nine">
   <div id="videoViewport">
 
-<section id="frame">
-</section> 
-      
-<ion-toolbar position="bottom" id="smart-bar">
-  
-  <input id="scrubber" (change)="scrub($event)" type="range" [min]="0" max="{{song.duration}}" [value]="scrubber">
+    <section id="frame">
+      <animation-ecare>
+      </animation-ecare>
+    </section>
+
+    <section id="overlay" *ngIf="contents">
+      <h1>Scenes</h1>
+    </section>
+
+    <section id="cc" *ngIf="cc">
+      <h1>Here is closed caption text.</h1>
+    </section>
     
-  <ion-buttons begin>
-    <button royal>
-      <ion-icon name="list" *ngIf="!steps"></ion-icon>
-    </button>
-    <button royal (click)="play(!playing)">
+    <section id="sizes" *ngIf="sizes">
+      <button royal (click)="resize('fullscreen')">
+        <ion-icon name="ios-desktop"></ion-icon>
+      </button>
+      
+      <button royal (click)="resize('halfscreen')">
+        <ion-icon name="ios-laptop-outline"></ion-icon>
+      </button>
+      
+      <button royal (click)="resize('phone')">
+        <ion-icon name="ios-phone-landscape-outline"></ion-icon>
+      </button>
+      
+      <button royal (click)="resize('small')">
+        <ion-icon name="ios-phone-portrait-outline"></ion-icon>
+      </button>
+    </section>
+
+    <ion-toolbar position="bottom" id="smart-bar">
+
+      <input id="scrubber" (change)="scrub($event)" type="range" [min]="0" max="{{song.duration}}" [value]="scrubber">
+      
+      <ion-buttons begin>
+        <button royal (click)="contents=!contents">
+          <ion-icon name="list" *ngIf="!steps"></ion-icon>
+        </button>
+        <button royal (click)="play(!playing)">
       <ion-icon name="play" *ngIf="!playing"></ion-icon>
       <ion-icon name="pause" *ngIf="playing"></ion-icon>
-      {{minutes(song.currentTime)+':'+seconds(song.currentTime)}}/{{minutes(song.duration)+':'+seconds(song.duration)}}
+      {{minutes(song.currentTime)+':'+seconds(song.currentTime)}}/{{minutes(song.duration)+':'+seconds(song.duration)}} {{size}}
     </button>
-  </ion-buttons>
-  
-  <ion-buttons end>
-    <button royal>
-      <ion-icon name="ios-closed-captioning"></ion-icon>
-    </button>
-    <button royal>
+      </ion-buttons>
+
+      <ion-buttons end>
+        <button royal (click)="cc=!cc">
+          <ion-icon name="ios-closed-captioning"></ion-icon>
+        </button>
+        <button royal (click)="sizes=!sizes">
       <ion-icon name="ios-expand"></ion-icon>
     </button>
-  </ion-buttons>
-</ion-toolbar>
+      </ion-buttons>
+    </ion-toolbar>
   </div>
 </div>

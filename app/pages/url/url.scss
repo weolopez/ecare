@@ -1,5 +1,5 @@
 .flexcontainer {
-    background: black;
+    background: white;
    display: -webkit-flex;
    display: flex;
    -webkit-flex-direction: row; /* works with row or column */
@@ -37,7 +37,7 @@
        margin: 0;
    }
   #left-nav {
-       width: 768px;
+       width: 100%;
        margin: auto 0;
    }
     #url-container {

@@ -1,12 +1,15 @@
 import {Component, Input} from 'angular2/core';
+import { EcareAnimation } from '../../components/animation/ecare/ecare';
 
 declare var jQuery: JQueryStatic;
 
 @Component({
   selector: 'smart-video',
-  templateUrl: 'build/components/video/video.html'
+  templateUrl: 'build/components/video/video.html',
+  directives: [EcareAnimation]
 })
 export class Video {
+  size: any;
   song: Audio = new Audio('interactive_1500001197/output.wav');
   scrubber: any=0;
   curtime: any;
@@ -73,6 +76,25 @@ export class Video {
   addFrame(index, start, end, animationClass) {
   }
 
+  resize(size) {
+    if (window.parent.document.getElementById('url-container')===null) return;
+    if (size==='fullscreen') {
+      window.parent.document.getElementById('url-container').style.width = '100%';
+    this.size = window.parent.document.getElementById('url-container').style.width;
+    }
+    if (size==='halfscreen') {
+      window.parent.document.getElementById('url-container').style.width = '1024px';
+    this.size = window.parent.document.getElementById('url-container').style.width;
+    }
+    if (size==='phone') {
+      window.parent.document.getElementById('url-container').style.width = '768px';
+    this.size = window.parent.document.getElementById('url-container').style.width;
+    }
+    if (size==='small') {
+      window.parent.document.getElementById('url-container').style.width = '320px';
+    this.size = window.parent.document.getElementById('url-container').style.width;
+    }
+  }
   runVideo() {
   }
   seconds(t) {
