@@ -9001,6 +9001,7 @@ body {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      opacity: 0.6;
       background: black;
       color: white;
       position: absolute;
@@ -9012,6 +9013,7 @@ body {
       display: -webkit-flex;
       display: -ms-flexbox;
       display: flex;
+      opacity: 0.6;
       background: black;
       color: white;
       position: absolute;
