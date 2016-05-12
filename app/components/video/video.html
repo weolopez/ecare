@@ -13,20 +13,20 @@
     <section id="cc" *ngIf="cc">
       <h1>Here is closed caption text.</h1>
     </section>
-    
+
     <section id="sizes" *ngIf="sizes">
       <button royal (click)="resize('fullscreen')">
         <ion-icon name="ios-desktop"></ion-icon>
       </button>
-      
+
       <button royal (click)="resize('halfscreen')">
         <ion-icon name="ios-laptop-outline"></ion-icon>
       </button>
-      
+
       <button royal (click)="resize('phone')">
         <ion-icon name="ios-phone-landscape-outline"></ion-icon>
       </button>
-      
+
       <button royal (click)="resize('small')">
         <ion-icon name="ios-phone-portrait-outline"></ion-icon>
       </button>
@@ -34,8 +34,8 @@
 
     <ion-toolbar position="bottom" id="smart-bar">
 
-      <input id="scrubber" (change)="scrub($event)" type="range" [min]="0" max="{{song.duration}}" [value]="scrubber">
-      
+      <input id="scrubber" (change)="scrub($event)" type="range" [min]="0" max="{{pop.duration}}" [value]="scrubber">
+
       <ion-buttons begin>
         <button royal (click)="contents=!contents">
           <ion-icon name="list" *ngIf="!steps"></ion-icon>
@@ -43,7 +43,7 @@
         <button royal (click)="play(!playing)">
       <ion-icon name="play" *ngIf="!playing"></ion-icon>
       <ion-icon name="pause" *ngIf="playing"></ion-icon>
-      {{minutes(song.currentTime)+':'+seconds(song.currentTime)}}/{{minutes(song.duration)+':'+seconds(song.duration)}} {{size}}
+      {{minutes(pop.currentTime)+':'+seconds(pop.currentTime)}}/{{minutes(pop.duration)+':'+seconds(pop.duration)}} {{size}}
     </button>
       </ion-buttons>
 
@@ -56,5 +56,9 @@
     </button>
       </ion-buttons>
     </ion-toolbar>
+
+    <audio id="ourvideo" controls="controls" height="1px">
+						<source src="interactive_1500001197/output.wav">
+					</audio>
   </div>
 </div>

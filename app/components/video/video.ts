@@ -1,18 +1,18 @@
 import {Component, Input} from 'angular2/core';
-import { EcareAnimation } from '../../components/animation/ecare/ecare';
+//import { EcareAnimation } from '../../components/animation/ecare/ecare';
 
 declare var jQuery: JQueryStatic;
 
 @Component({
   selector: 'smart-video',
-  templateUrl: 'build/components/video/video.html',
-  directives: [EcareAnimation]
+  templateUrl: 'build/components/video/video.html'//,
+ // directives: [EcareAnimation]
 })
 export class Video {
   size: any;
-  song: Audio = new Audio('interactive_1500001197/output.wav');
   scrubber: any=0;
   curtime: any;
+  pop: any ;
   constructor() {
     var video = this;
   }
@@ -22,24 +22,26 @@ export class Video {
     video.playing = playing;
 
     if (video.playing)
-      video.song.play();
+    video.pop.play();
+      //video.song.play();
     else
-      video.song.pause();
+    video.pop.pause();
+//      video.song.pause();
   }
   scrub(e) {
     var video = this;
     var value = e.srcElement.value;
-    video.song.currentTime = value;
-    
-    e.preventDefault();
+    video.pop.currentTime = value;
   }
   ngOnInit() {
     var video = this;
-    
-    video.song.addEventListener('timeupdate', function () {
-      video.curtime = parseInt(video.song.currentTime, 10);
+    video.pop = Popcorn('#ourvideo');
+    /*
+    video.pop.addEventListener('timeupdate', function () {
+      video.curtime = parseInt(video.pop.currentTime, 10);
       video.scrubber = video.curtime;
     });
+    */
     
     video.play(true);
     /*
