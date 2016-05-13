@@ -4,13 +4,13 @@
 
       <div id="webpagediv1" class="webpagedivseg">
 
-        <div class="welcometxt animate">{{data.articleName}}</div>
+        <div class="welcometxt animate" *ngIf="data">{{data.articleName}}</div>
       </div>
 
       <div id="webpagediv2" class="webpagedivseg">
 
-        <div class="welcometxt animate">{{data.articleName}}</div>
-        <div class="articleDescription">{{data.articleDescription}}</div>
+        <div class="welcometxt animate" *ngIf="data">{{data.articleName}}</div>
+        <div class="articleDescription" *ngIf="data">{{data.articleDescription}}</div>
         <div class="green-container" >
           <img class="animate green" src="img/green.png" >
         </div>
@@ -19,8 +19,8 @@
         </div>
       </div>
 
-      <div class="webpagedivseg" [attr.id]="'webpagediv'+(i+3)" *ngFor="#step of data.steps.step ; #i = index">
-        <div class="welcometxt1 animate">{{data.articleName}}</div>
+      <div class="webpagedivseg" *ngIf="data" [attr.id]="'webpagediv'+(i+3)" *ngFor="#step of data.steps.step ; #i = index">
+        <div class="welcometxt1 animate" *ngIf="data">{{data.articleName}}</div>
         <div class="phone-container">
           <img class="animate phone1" src="https://www.att.com/devicehowtomedia/image/{{step.imageLocation}}">
         </div>
