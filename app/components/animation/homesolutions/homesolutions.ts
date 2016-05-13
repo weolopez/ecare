@@ -382,6 +382,7 @@ export class HomeSolutionsAnimation {
 				"classname": "btn3Ani animated"
 			}];
 
+
 		var items = [
 			[0, 0.5],
 			[0.5, 2.5, animate0],
