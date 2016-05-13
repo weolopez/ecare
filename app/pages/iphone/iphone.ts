@@ -13,6 +13,6 @@ import {Iframe} from '../../components/iframe/iframe';
 })
 export class IphonePage {
   winwidth: string='568px';
-  url: string='http://localhost:8100/?video=1500001197';
+  url: string='?video=1500001197';
   constructor(public nav: NavController) {}
 }

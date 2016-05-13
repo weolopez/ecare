@@ -1524,7 +1524,7 @@ var IphonePage = (function () {
     function IphonePage(nav) {
         this.nav = nav;
         this.winwidth = '568px';
-        this.url = 'http://localhost:8100/?video=1500001197';
+        this.url = '?video=1500001197';
     }
     IphonePage = __decorate([
         ionic_angular_1.Page({
