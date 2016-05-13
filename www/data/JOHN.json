@@ -1,0 +1,13 @@
+[
+  {
+    "user": "John",
+    "data": {
+      "firstName": "John",
+      "lastName": "Ford",
+      "product" : "Samsung Galaxy S 6 Edge",
+		"productImg" : "galaxys6edgeplus.png",
+		"memory" : "16 GB Gold",
+		"delivery" : "Feb 16th"
+    }
+  }
+]

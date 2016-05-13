@@ -1,4 +1,5 @@
 import {Page, NavController} from 'ionic-angular';
+import {Iframe} from '../../components/iframe/iframe';
 
 /*
   Generated class for the IphonePage page.
@@ -8,8 +9,10 @@ import {Page, NavController} from 'ionic-angular';
 */
 @Page({
   templateUrl: 'build/pages/iphone/iphone.html',
+  directives: [Iframe]
 })
 export class IphonePage {
   winwidth: string='568px';
+  url: string='http://localhost:8100/?video=1500001197';
   constructor(public nav: NavController) {}
 }

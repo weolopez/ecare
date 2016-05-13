@@ -1,54 +1,23 @@
 <div class="sixteen-nine">
   <div id="videoViewport">
 
+    <animation-ecare *ngIf="poc==='video'" [playing]="playing"></animation-ecare>
 
-      <div id="webpagediv0" class="webpagedivseg" style="display: block;">
-      </div>
+    <animation-ecare2 *ngIf="poc==='poc'" [playing]="playing"></animation-ecare2>
 
-      <div id="webpagediv1" class="webpagedivseg">
+    <animation-homesolutions *ngIf="poc==='homesolutions'" [playing]="playing"></animation-homesolutions>
 
-        <div class="welcometxt animate">{{data.articleName}}</div>
-      </div>
+    <audio id="ourvideo">
+						<source [src]="articleFile">
+					</audio>
 
-      <div id="webpagediv2" class="webpagedivseg">
-
-        <div class="welcometxt animate">{{data.articleName}}</div>
-        <div class="articleDescription">{{data.articleDescription}}</div>
-        <div class="green-container" >
-          <img class="animate green" src="img/green.png" >
-        </div>
-        <div class="blue-container">
-          <img class="animate blue" src="img/bluecircle.png">
-        </div>
-      </div>
-
-      <div class="webpagedivseg" [attr.id]="'webpagediv'+(i+3)" *ngFor="#step of data.steps.step ; #i = index">
-        <div class="welcometxt1 animate">{{data.articleName}}</div>
-        <div class="phone-container">
-          <img class="animate phone1" src="https://www.att.com/devicehowtomedia/image/{{step.imageLocation}}">
-        </div>
-        <div class="text-container">
-          <div class="stepNum hd1">
-            Step - {{step.stepOrder}}
-          </div>
-          <div class="text" [innerHTML]="step.stepContent"></div>
-          <div class="notes" open="_blank" *ngIf="step.stepNote" [innerHTML]="step.stepNote">
-          </div>
-        </div>
-        <div class="green-container" >
-          <img class="animate green" src="img/green.png" >
-        </div>
-        <div class="blue-container">
-          <img class="animate blue" src="img/bluecircle.png">
-        </div>
-      </div>
 
     <section id="overlay" *ngIf="contents">
-      <ul>
-        <li *ngFor="#step of data.steps.step ; #i = index" style=""> 
-          Step {{step.stepOrder}} 
-        </li>
-      </ul>
+      <ion-content>
+        <ion-list>
+          <a *ngFor="#article of urllist" [href]="article.url" ><div id="url" left >{{article.name}}</div></a>
+        </ion-list>
+      </ion-content>
     </section>
 
     <section id="cc" *ngIf="cc">
@@ -84,7 +53,7 @@
         <button royal (click)="play(!playing)">
       <ion-icon name="play" *ngIf="!playing"></ion-icon>
       <ion-icon name="pause" *ngIf="playing"></ion-icon>
-      {{minutes(v.currentTime)+':'+seconds(v.currentTime)}}/{{minutes(v.duration)+':'+seconds(v.duration)}} {{size}}
+      {{minutes(v.currentTime)+':'+seconds(v.currentTime)}}/{{minutes(v.duration)+':'+seconds(v.duration)}}
     </button>
       </ion-buttons>
 
@@ -98,8 +67,5 @@
       </ion-buttons>
     </ion-toolbar>
 
-    <audio id="ourvideo" controls="controls" height="1px">
-						<source src="interactive_1500001197/output.wav">
-					</audio>
   </div>
 </div>

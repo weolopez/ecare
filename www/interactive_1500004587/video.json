@@ -1,1 +1,103 @@
-{"frame0":[0,4],"topicId":"9006136","articleName":"Bluetooth ","articleDescription":"Turn Bluetooth on or off, scan and connect to other Bluetooth devices, and unpair a connected device.","id":"interactive_1500004587","steps":{"step":[{"stepOrder":"1","stepContent":"To turn on&nbsp;<strong>Bluetooth,<\/strong>&nbsp;from the clock screen, swipe to the left, then tap the&nbsp;<strong>Settings icon.<\/strong>","stepNote":"To optimize battery life, turn Bluetooth off when not in use.","imageLocation":"5060/9006136_01.jpg","frame":[13,26]},{"stepOrder":"2","stepContent":"Scroll to and tap<strong>&nbsp;Connections.<\/strong>","imageLocation":"5060/9006136_02.jpg","frame":[26,30]},{"stepOrder":"3","stepContent":"Tap&nbsp;<strong>Bluetooth.<\/strong>","imageLocation":"5060/9006136_03.jpg","frame":[30,34]},{"stepOrder":"4","stepContent":"Tap the&nbsp;<strong>Bluetooth toggle<\/strong>&nbsp;to turn on or off.","imageLocation":"5060/9006136_04.jpg","frame":[34,39]},{"stepOrder":"5","stepContent":"When Bluetooth is on, the&nbsp;<strong>Bluetooth icon&nbsp;<\/strong>will display in the notification bar.","imageLocation":"5060/9006136_05.jpg","frame":[39,46]},{"stepOrder":"6","stepContent":"To scan for Bluetooth devices, tap&nbsp;<strong>BT headset.&nbsp;<\/strong>","stepNote":"<span style=\"line-height: 20.799999237060547px;\">Bluetooth will automatically scan for devices.<\/span>","imageLocation":"5060/9006136_06.jpg","frame":[46,55]},{"stepOrder":"7","stepContent":"To connect to a Bluetooth device, tap the desired device.","imageLocation":"5060/9006136_07.jpg","frame":[55,61]},{"stepOrder":"8","stepContent":"To unpair device, tap the&nbsp;<strong>Settings icon.<\/strong>","imageLocation":"5060/9006136_08.jpg","frame":[61,66]},{"stepOrder":"9","stepContent":"Tap<strong>&nbsp;Unpair.<\/strong>","stepNote":"If having trouble pairing/unpairing your device with your vehicle, please refer to your vehicle&#39;s user manual for additional information.&nbsp;For additional information on pairing, please see the&nbsp;<a href=\"http://www.att.com/esupport/article.jsp?sid=KB426660&amp;cv=820\">Pair Bluetooth Accessory article<\/a>.","imageLocation":"5060/9006136_09.jpg","frame":[66,82]}]},"url":"http://www.att.com/devicehowto/index.jsp?id=interactive_1500004587&make=Samsung&model=SamsungR735A","frame":[4,13]}
+{
+    "frame0": [
+        0,
+        4
+    ],
+    "topicId": "9006136",
+    "articleName": "Bluetooth ",
+    "articleDescription": "Turn Bluetooth on or off, scan and connect to other Bluetooth devices, and unpair a connected device.",
+    "id": "interactive_1500004587",
+    "steps": {
+        "step": [
+            {
+                "stepOrder": "1",
+                "stepContent": "To turn on&nbsp;<strong>Bluetooth,<\/strong>&nbsp;from the clock screen, swipe to the left, then tap the&nbsp;<strong>Settings icon.<\/strong>",
+                "stepNote": "To optimize battery life, turn Bluetooth off when not in use.",
+                "imageLocation": "5060/9006136_01.jpg",
+                "frame": [
+                    13,
+                    26
+                ]
+            },
+            {
+                "stepOrder": "2",
+                "stepContent": "Scroll to and tap<strong>&nbsp;Connections.<\/strong>",
+                "imageLocation": "5060/9006136_02.jpg",
+                "frame": [
+                    26,
+                    30
+                ]
+            },
+            {
+                "stepOrder": "3",
+                "stepContent": "Tap&nbsp;<strong>Bluetooth.<\/strong>",
+                "imageLocation": "5060/9006136_03.jpg",
+                "frame": [
+                    30,
+                    34
+                ]
+            },
+            {
+                "stepOrder": "4",
+                "stepContent": "Tap the&nbsp;<strong>Bluetooth toggle<\/strong>&nbsp;to turn on or off.",
+                "imageLocation": "5060/9006136_04.jpg",
+                "frame": [
+                    34,
+                    39
+                ]
+            },
+            {
+                "stepOrder": "5",
+                "stepContent": "When Bluetooth is on, the&nbsp;<strong>Bluetooth icon&nbsp;<\/strong>will display in the notification bar.",
+                "imageLocation": "5060/9006136_05.jpg",
+                "frame": [
+                    39,
+                    46
+                ]
+            },
+            {
+                "stepOrder": "6",
+                "stepContent": "To scan for Bluetooth devices, tap&nbsp;<strong>BT headset.&nbsp;<\/strong>",
+                "stepNote": "<span style=\"line-height: 20.799999237060547px;\">Bluetooth will automatically scan for devices.<\/span>",
+                "imageLocation": "5060/9006136_06.jpg",
+                "frame": [
+                    46,
+                    55
+                ]
+            },
+            {
+                "stepOrder": "7",
+                "stepContent": "To connect to a Bluetooth device, tap the desired device.",
+                "imageLocation": "5060/9006136_07.jpg",
+                "frame": [
+                    55,
+                    61
+                ]
+            },
+            {
+                "stepOrder": "8",
+                "stepContent": "To unpair device, tap the&nbsp;<strong>Settings icon.<\/strong>",
+                "imageLocation": "5060/9006136_08.jpg",
+                "frame": [
+                    61,
+                    66
+                ]
+            },
+            {
+                "stepOrder": "9",
+                "stepContent": "Tap<strong>&nbsp;Unpair.<\/strong>",
+                "stepNote": "If having trouble pairing/unpairing your device with your vehicle, please refer to your vehicle&#39;s user manual for additional information.&nbsp;For additional information on pairing, please see the&nbsp;<a href=\"http://www.att.com/esupport/article.jsp?sid=KB426660&amp;cv=820\">Pair Bluetooth Accessory article<\/a>.",
+                "imageLocation": "5060/9006136_09.jpg",
+                "frame": [
+                    66,
+                    82
+                ]
+            }
+        ]
+    },
+    "url": "http://www.att.com/devicehowto/index.jsp?id=interactive_1500004587&make=Samsung&model=SamsungR735A",
+    "frame": [
+        4,
+        13
+    ]
+}

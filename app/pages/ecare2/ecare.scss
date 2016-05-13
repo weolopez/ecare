@@ -199,7 +199,7 @@ body {
 //	position: absolute;
 //	top: 50%;
 //}
-
+/*
 .welcometxtAni {
 	animation-name: welcometxtAni;
 }
@@ -208,7 +208,15 @@ body {
 
 100%{top:2%;}
 }
-/*
+.notes span {
+	display: block;
+}
+
+.notesAni {
+	animation-delay: 1s;
+	animation-name: flipInX;
+}
+
 .stepNum {
 	left: 60%;
 	position: absolute;
@@ -239,14 +247,6 @@ body {
 	font-size: 14px;
 }
 */
-.notes span {
-	display: block;
-}
-
-.notesAni {
-	animation-delay: 1s;
-	animation-name: flipInX;
-}
 
 /*
 .welcometxt1 {

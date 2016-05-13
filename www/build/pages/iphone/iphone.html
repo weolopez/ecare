@@ -18,23 +18,26 @@
 
 </div>
 
-<div  style="text-align: center" [class]="pos">    
+
+    <weo-iframe [url]="url">
+    </weo-iframe>
+
+<!--div  style="text-align: center" [class]="pos">    
   <div id="window" [style.width]="winwidth">
     <div class="wrapper">
       <div class="h_iframe">
-        <!-- a transparent image is preferable -->
         <img class="ratio" src="http://placehold.it/16x9" />
         <iframe src="http://localhost:8100/?article=1500001197" frameborder="0" allowfullscreen></iframe>
       </div>
     </div>
   </div>
-</div>
+</div-->
 
-  <ion-row style="position: absolute;bottom: 0;">
+  <!--ion-row style="position: absolute;bottom: 0;">
     <button (click)="winwidth='320px'">iPhone 5SE portrate</button>
     <button (click)="winwidth='568px'">iPhone 5SE</button>
     <button (click)="winwidth='736px'">iPhone 6+</button>
     <button (click)="winwidth='1024px'">iPad Pro</button>
     <a href="http://localhost:8100/?article=1500001197"> <button >Full Screen</button></a>  
-  </ion-row>
+  </ion-row-->
 </ion-content>

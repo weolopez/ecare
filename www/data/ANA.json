@@ -1,0 +1,13 @@
+[
+  {
+    "user": "Ana",
+    "data": {
+      "firstName": "Ana",
+      "lastName": "Ford",
+      "product": "Apple iPhone 6S",
+      "memory": "16 GB Silver",
+      "delivery": "Feb 11th",
+      "productImg": "phone.png"
+    }
+  }
+]

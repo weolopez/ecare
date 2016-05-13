@@ -1,0 +1,46 @@
+[
+  {
+    "user": "Karthik",
+    "data": {
+      "firstName": "Karthik",
+      "lastName": "Sundar",
+      "product": "Apple iPhone 6S",
+      "memory": "16 GB Silver",
+      "delivery": "July 4th",
+      "productImg": "phone.png"
+    }
+  },
+  {
+    "user": "Sam",
+    "data": {
+      "firstName": "Sam",
+      "lastName": "Sundar",
+      "product": "Apple iPhone 6S plus",
+      "memory": "16 GB Space Gray",
+      "delivery": "Mar 2nd",
+      "productImg": "apple-iphone-6s.png"
+    }
+  },
+  {
+    "user": "Natali",
+    "data": {
+      "firstName": "Natali",
+      "lastName": "Sundar",
+      "product": "Samsung Galaxy S6",
+      "memory": "32 GB White Pearl",
+      "delivery": "Aug 10th",
+      "productImg": "galaxys6.png"
+    }
+  },
+  {
+    "user": "John",
+    "data": {
+      "firstName": "John",
+      "lastName": "Sundar",
+      "product": "Samsung Galaxy s6 edge",
+      "memory": "32 GB Gold Platinum",
+      "delivery": "July 14th",
+      "productImg": "galaxys6edgeplus.png"
+    }
+  }
+]

@@ -13,36 +13,6 @@ import {Iframe} from '../../components/iframe/iframe';
 })
 export class URL {
   winwidth: string='320px';
-  url: string="?video=1500001197";
-  urllist: Array<any>=[
-    {
-      name: "Set up Visual Voicemail",
-      url: "?article=1500001197"
-    },
-    {
-      name: "Insert SIM card",
-      url: "?article=1500001346"
-    },
-    {
-      name: "Block calls",
-      url: "?article=1500001360"
-    },
-    {
-      name: "Keyboard & typing",
-      url: "?article=1500001362"
-    },
-    {
-      name: "Personal hotspot",
-      url: "?article=1500001373"
-    },
-    {
-      name: "View & manage data",
-      url: "?article=1500001423"
-    },
-    {
-      name: "Bluetooth ",
-      url: "?article=1500004587"
-    }
-  ]
+  url: string="?video=1500001197";//poc";
   constructor(public nav: NavController) {}
 }
