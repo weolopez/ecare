@@ -1,71 +1,73 @@
 <div class="sixteen-nine">
   <div id="videoViewport">
 
-    <animation-ecare *ngIf="poc==='video'" [playing]="playing"></animation-ecare>
+    <animation-ecare *ngIf="isVideoReady" [playing]="playing" [data]="data" (loaded)="initVideo()">    
+      </animation-ecare>
+    <!--animation-homesolutions *ngIf="poc==='homesolutions'" [playing]="playing"></animation-homesolutions-->
+    <animation-ecare2 *ngIf="isPOCReady" [playing]="playing" [data]="data" (loaded)="initVideo()">
+    </animation-ecare2>
 
-    <animation-ecare2 *ngIf="poc==='poc'" [playing]="playing"></animation-ecare2>
-
-    <animation-homesolutions *ngIf="poc==='homesolutions'" [playing]="playing"></animation-homesolutions>
-
-    <audio id="ourvideo">
+      <audio id="ourvideo">
 						<source [src]="articleFile">
 					</audio>
+          
+    <section id="control-bar" *ngIf="v">
+      <section id="overlay" *ngIf="contents">
+        <ion-content>
+          <ion-list>
+            <a *ngFor="#article of urllist" [href]="article.url">
+              <div id="url" left>{{article.name}}</div>
+            </a>
+          </ion-list>
+        </ion-content>
+      </section>
 
+      <section id="cc" *ngIf="cc">
+        <h1>Here is closed caption text.</h1>
+      </section>
 
-    <section id="overlay" *ngIf="contents">
-      <ion-content>
-        <ion-list>
-          <a *ngFor="#article of urllist" [href]="article.url" ><div id="url" left >{{article.name}}</div></a>
-        </ion-list>
-      </ion-content>
-    </section>
-
-    <section id="cc" *ngIf="cc">
-      <h1>Here is closed caption text.</h1>
-    </section>
-
-    <section id="sizes" *ngIf="sizes">
-      <button royal (click)="resize('fullscreen')">
+      <section id="sizes" *ngIf="sizes">
+        <button royal (click)="resize('fullscreen')">
         <ion-icon name="ios-desktop"></ion-icon>
       </button>
 
-      <button royal (click)="resize('halfscreen')">
+        <button royal (click)="resize('halfscreen')">
         <ion-icon name="ios-laptop-outline"></ion-icon>
       </button>
 
-      <button royal (click)="resize('phone')">
+        <button royal (click)="resize('phone')">
         <ion-icon name="ios-phone-landscape-outline"></ion-icon>
       </button>
 
-      <button royal (click)="resize('small')">
+        <button royal (click)="resize('small')">
         <ion-icon name="ios-phone-portrait-outline"></ion-icon>
       </button>
-    </section>
+      </section>
 
-    <ion-toolbar position="bottom" id="smart-bar">
+      <ion-toolbar position="bottom" id="smart-bar">
 
-      <input id="scrubber" (change)="scrub($event)" type="range" [min]="0" max="{{v.duration}}" [value]="scrubber">
+        <input id="scrubber" (change)="scrub($event)" type="range" [min]="0" max="{{v.duration}}" [value]="scrubber">
 
-      <ion-buttons begin>
-        <button royal (click)="contents=!contents">
+        <ion-buttons begin>
+          <button royal (click)="contents=!contents">
           <ion-icon name="list" *ngIf="!steps"></ion-icon>
         </button>
-        <button royal (click)="play(!playing)">
+          <button royal (click)="play(!playing)">
       <ion-icon name="play" *ngIf="!playing"></ion-icon>
       <ion-icon name="pause" *ngIf="playing"></ion-icon>
       {{minutes(v.currentTime)+':'+seconds(v.currentTime)}}/{{minutes(v.duration)+':'+seconds(v.duration)}}
     </button>
-      </ion-buttons>
+        </ion-buttons>
 
-      <ion-buttons end>
-        <button royal (click)="cc=!cc">
+        <ion-buttons end>
+          <button royal (click)="cc=!cc">
           <ion-icon name="ios-closed-captioning"></ion-icon>
         </button>
-        <button royal (click)="sizes=!sizes">
+          <button royal (click)="sizes=!sizes">
       <ion-icon name="ios-expand"></ion-icon>
     </button>
-      </ion-buttons>
-    </ion-toolbar>
-
+        </ion-buttons>
+      </ion-toolbar>
+    </section>
   </div>
 </div>

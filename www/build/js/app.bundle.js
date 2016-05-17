@@ -75,188 +75,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var http_1 = require('angular2/http');
 var open_1 = require('../../open/open');
 var EcareAnimation2 = (function () {
-    // articleFile: any;
-    function EcareAnimation2(http) {
-        this.http = http;
+    function EcareAnimation2() {
         this.playing = false;
+        this.loaded = new core_1.EventEmitter();
         this.scrubber = 0;
-        this.data = {
-            "id": "interactive_1500004587",
-            "frames": [
-                {
-                    "articleName": "Bluetooth ",
-                    "start": 0,
-                    "end": 4
-                },
-                {
-                    "articleDescription": "To turn on&nbsp;<strong>Bluetooth,<\/strong>&nbsp;from the clock screen, swipe to the left, then tap the&nbsp;<strong>Settings icon.<\/strong>",
-                    "start": 4,
-                    "end": 13
-                },
-                {
-                    "stepOrder": "1",
-                    "stepContent": "To turn on&nbsp;<strong>Bluetooth,<\/strong>&nbsp;from the clock screen, swipe to the left, then tap the&nbsp;<strong>Settings icon.<\/strong>",
-                    "stepNote": "To optimize battery life, turn Bluetooth off when not in use.",
-                    "imageLocation": "img/phone1.jpg",
-                    "start": 13,
-                    "end": 26
-                },
-                {
-                    "stepOrder": "2",
-                    "stepContent": "Scroll to and tap<strong>&nbsp;Connections.<\/strong>",
-                    "imageLocation": "5060/9006136_02.jpg",
-                    "start": 26,
-                    "end": 30
-                },
-                {
-                    "stepOrder": "3",
-                    "stepContent": "Tap&nbsp;<strong>Bluetooth.<\/strong>",
-                    "imageLocation": "5060/9006136_03.jpg",
-                    "start": 30,
-                    "end": 34
-                },
-                {
-                    "stepOrder": "4",
-                    "stepContent": "Tap the&nbsp;<strong>Bluetooth toggle<\/strong>&nbsp;to turn on or off.",
-                    "imageLocation": "5060/9006136_04.jpg",
-                    "start": 34,
-                    "end": 39
-                },
-                {
-                    "stepOrder": "5",
-                    "stepContent": "When Bluetooth is on, the&nbsp;<strong>Bluetooth icon&nbsp;<\/strong>will display in the notification bar.",
-                    "imageLocation": "5060/9006136_05.jpg",
-                    "start": 39,
-                    "end": 46
-                },
-                {
-                    "stepOrder": "6",
-                    "stepContent": "To scan for Bluetooth devices, tap&nbsp;<strong>BT headset.&nbsp;<\/strong>",
-                    "stepNote": "<span style=\"line-height: 20.799999237060547px;\">Bluetooth will automatically scan for devices.<\/span>",
-                    "imageLocation": "5060/9006136_06.jpg",
-                    "start": 46,
-                    "end": 55
-                },
-                {
-                    "stepOrder": "7",
-                    "stepContent": "To connect to a Bluetooth device, tap the desired device.",
-                    "imageLocation": "5060/9006136_07.jpg",
-                    "start": 55,
-                    "end": 61
-                },
-                {
-                    "stepOrder": "8",
-                    "stepContent": "To unpair device, tap the&nbsp;<strong>Settings icon.<\/strong>",
-                    "imageLocation": "5060/9006136_08.jpg",
-                    "start": 61,
-                    "end": 66
-                },
-                {
-                    "stepOrder": "9",
-                    "stepContent": "Tap<strong>&nbsp;Unpair.<\/strong>",
-                    "stepNote": "If having trouble pairing/unpairing your device with your vehicle, please refer to your vehicle&#39;s user manual for additional information.&nbsp;For additional information on pairing, please see the&nbsp;<a href=\"http://www.att.com/esupport/article.jsp?sid=KB426660&amp;cv=820\">Pair Bluetooth Accessory article<\/a>.",
-                    "imageLocation": "5060/9006136_09.jpg",
-                    "start": 66,
-                    "end": 82
-                }
-            ],
-            "url": "http://www.att.com/devicehowto/index.jsp?id=interactive_1500004587&make=Samsung&model=SamsungR735A"
-        };
         var video = this;
-        //  video.articleFile='./interactive_'+document.location.search.split('=')[1]+'/output.wav';
     }
-    EcareAnimation2.prototype.getArticles = function () {
-        var _this = this;
-        var ecareAnimation = this;
-        ecareAnimation.http.get('./interactive_poc/video.json')
-            .subscribe(function (data) {
-            var body = data.text();
-            ecareAnimation.data = JSON.parse(body) || {};
-            ecareAnimation.runVideo();
-        }, function (error) { return _this.errorMessage = error; });
-    };
-    EcareAnimation2.prototype.play = function (playing) {
-        var video = this;
-        video.playing = playing;
-        if (video.playing)
-            video.pop.play();
-        else
-            video.pop.pause();
-        //      video.song.pause();
-    };
-    EcareAnimation2.prototype.scrub = function (e) {
-        var video = this;
-        var value = e.srcElement.value;
-        video.v.currentTime = value;
-    };
     EcareAnimation2.prototype.ngOnInit = function () {
         var video = this;
-        this.getArticles();
         video.pop = Popcorn('#ourvideo');
+        video.runVideo();
         video.v = document.getElementById("ourvideo");
         video.pop.listen('timeupdate', function () {
             video.curtime = parseInt(video.v.currentTime, 10);
             video.scrubber = video.curtime;
         });
-        /*
-        video.play(true);
-          //    var vid = document.getElementById("ourvideo");
-        
-              var container = document.getElementById('videoViewport');
-              
-              var duration = song.duration;
-        
-              song.onpause = function () {
-                video.playing = false;
-               // jQuery('.animate').css('animation-play-state', 'paused');
-              };
-              song.onplaying = function () {
-                video.playing = true;
-             //   jQuery('.animate').css('animation-play-state', 'running');
-              };
-              song.onseeking = function () {
-                video.playing = false;
-            //   jQuery('.animate').css('animation-play-state', 'paused');
-              };
-              
-           jQuery("#scrubber").bind("change", function () {
-                song.currentTime = jQuery(this).val();
-                jQuery("#scrubber").attr("max", song.duration);
-              });
-        
-              song.addEventListener('timeupdate', function () {
-                var curtime = parseInt(song.currentTime, 10);
-                jQuery("#seek").attr("value", curtime);
-              });*/
-    };
-    EcareAnimation2.prototype.resize = function (size) {
-        if (window.parent.document.getElementById('url-container') === null)
-            return;
-        if (size === 'fullscreen') {
-            window.parent.document.getElementById('url-container').style.width = '100%';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-        if (size === 'halfscreen') {
-            window.parent.document.getElementById('url-container').style.width = '1024px';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-        if (size === 'phone') {
-            window.parent.document.getElementById('url-container').style.width = '768px';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-        if (size === 'small') {
-            window.parent.document.getElementById('url-container').style.width = '320px';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-    };
-    EcareAnimation2.prototype.seconds = function (t) {
-        return (t % 60).toFixed(0);
-    };
-    EcareAnimation2.prototype.minutes = function (t) {
-        return ~~(t / 60);
+        this.loaded.emit("event");
     };
     EcareAnimation2.prototype.addFrame = function (index, start, end, animationClass) {
         var VideoObject = this;
@@ -377,18 +213,26 @@ var EcareAnimation2 = (function () {
         core_1.Input('playing'), 
         __metadata('design:type', Boolean)
     ], EcareAnimation2.prototype, "playing", void 0);
+    __decorate([
+        core_1.Input('data'), 
+        __metadata('design:type', Object)
+    ], EcareAnimation2.prototype, "data", void 0);
+    __decorate([
+        core_1.Output('loaded'), 
+        __metadata('design:type', Object)
+    ], EcareAnimation2.prototype, "loaded", void 0);
     EcareAnimation2 = __decorate([
         core_1.Component({
             selector: 'animation-ecare2',
             templateUrl: 'build/components/animation/ecare2/ecare.html',
             directives: [open_1.Open]
         }), 
-        __metadata('design:paramtypes', [http_1.Http])
+        __metadata('design:paramtypes', [])
     ], EcareAnimation2);
     return EcareAnimation2;
 }());
 exports.EcareAnimation2 = EcareAnimation2;
-},{"../../open/open":6,"angular2/core":17,"angular2/http":18}],3:[function(require,module,exports){
+},{"../../open/open":6,"angular2/core":17}],3:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -400,50 +244,26 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-var article_1 = require('../../../services/article/article');
 var open_1 = require('../../open/open');
 var EcareAnimation = (function () {
     // articleFile: any;
-    function EcareAnimation(articleService) {
-        this.articleService = articleService;
+    function EcareAnimation() {
         this.playing = false;
+        this.loaded = new core_1.EventEmitter();
         this.scrubber = 0;
-        this.data = { "topicId": "", "articleName": "", "articleDescription": "", "id": "", "steps": { "step": [{ "stepOrder": "1", "stepContent": "To check and manage data usage, from the home screen, tap <strong>Settings<\/strong>.", "stepNote": "To check your current month&#39;s data usage dial <strong>*data#<\/strong> (<strong>*3282#<\/strong>) on your mobile phone to receive a text message with the current bill cycle&#39;s usage.", "imageLocation": "5015/9006183_01.jpg", "frame": [2, 20] }, { "stepOrder": "2", "stepContent": "Tap <strong>Cellular<\/strong>.", "imageLocation": "5015/9006183_02.jpg", "frame": [20, 24] }, { "stepOrder": "3", "stepContent": "Scroll to view a list of apps and the amount of cellular data they have used.", "stepNote": "The amount of data displayed is the amount used since the statistics were last reset. To reset the statistics, scroll to the bottom, then tap <strong>Reset Statistics<\/strong>.", "imageLocation": "5015/9006183_03.jpg", "frame": [24, 41] }, { "stepOrder": "4", "stepContent": "To disable cellular data usage for an app, tap the <strong>Cellular data switch<\/strong> next to the app name.", "stepNote": "Learn more from Apple support article: <a href=\"https://support.apple.com/en-us/HT201299\">Learn about cellular data settings and usage on your iPhone<\/a>", "imageLocation": "5015/9006183_04.jpg", "frame": [41, 55] }, { "stepOrder": "5", "stepContent": "To turn <strong>Wi-Fi Assist<\/strong> (automatically use cellular data when Wi-Fi connectivity is poor) on or off, scroll to the bottom of the page, then tap the <strong>Wi-Fi Assist switch<\/strong>. &nbsp;<br />", "stepNote": "Wi-Fi Assist regularly checks the Wi-Fi connection to determine signal strength. If the Wi-Fi signal strength drops below a specific range, Wi-Fi Assist will automatically switch the session to cellular data until the Wi-Fi signal improves. &nbsp;Wi-Fi Assist is an optional setting that is turned on by default and can be turned off at any time. Data rates apply for cellular connections. Learn more from Apple support article: <a href=\"https://support.apple.com/en-us/HT205296\">About Wi-Fi Assist<\/a>", "imageLocation": "5015/9006183_05.jpg", "frame": [55, 57] }] }, "url": "http://www.att.com/devicehowto/index.jsp?id=interactive_1500001423&make=Apple&model=Apple6sPlus" };
         var video = this;
         //  video.articleFile='./interactive_'+document.location.search.split('=')[1]+'/output.wav';
     }
-    EcareAnimation.prototype.getArticles = function () {
-        var _this = this;
-        var video = this;
-        this.articleService.getArticles()
-            .subscribe(function (data) {
-            video.data = data;
-            video.runVideo();
-        }, function (error) { return _this.errorMessage = error; });
-    };
-    EcareAnimation.prototype.play = function (playing) {
-        var video = this;
-        video.playing = playing;
-        if (video.playing)
-            video.pop.play();
-        else
-            video.pop.pause();
-        //      video.song.pause();
-    };
-    EcareAnimation.prototype.scrub = function (e) {
-        var video = this;
-        var value = e.srcElement.value;
-        video.v.currentTime = value;
-    };
     EcareAnimation.prototype.ngOnInit = function () {
         var video = this;
-        this.getArticles();
         video.pop = Popcorn('#ourvideo');
+        video.runVideo();
         video.v = document.getElementById("ourvideo");
         video.pop.listen('timeupdate', function () {
             video.curtime = parseInt(video.v.currentTime, 10);
             video.scrubber = video.curtime;
         });
+        this.loaded.emit("event");
         /*
         video.play(true);
           //    var vid = document.getElementById("ourvideo");
@@ -475,32 +295,6 @@ var EcareAnimation = (function () {
                 jQuery("#seek").attr("value", curtime);
               });*/
     };
-    EcareAnimation.prototype.resize = function (size) {
-        if (window.parent.document.getElementById('url-container') === null)
-            return;
-        if (size === 'fullscreen') {
-            window.parent.document.getElementById('url-container').style.width = '100%';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-        if (size === 'halfscreen') {
-            window.parent.document.getElementById('url-container').style.width = '1024px';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-        if (size === 'phone') {
-            window.parent.document.getElementById('url-container').style.width = '768px';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-        if (size === 'small') {
-            window.parent.document.getElementById('url-container').style.width = '320px';
-            this.size = window.parent.document.getElementById('url-container').style.width;
-        }
-    };
-    EcareAnimation.prototype.seconds = function (t) {
-        return (t % 60).toFixed(0);
-    };
-    EcareAnimation.prototype.minutes = function (t) {
-        return ~~(t / 60);
-    };
     EcareAnimation.prototype.addFrame = function (index, start, end, animationClass) {
         var VideoObject = this;
         VideoObject.pop
@@ -522,7 +316,9 @@ var EcareAnimation = (function () {
                         jQuery('#webpagediv' + options.ind).find(item.element).addClass(item.classname);
                     });
                 }
-                document.getElementById("webpagediv" + options.ind).style.display = "block";
+                var element = document.getElementById("webpagediv" + options.ind);
+                if (element)
+                    element.style.display = "block";
             },
             onEnd: function (options) {
                 if (options.classname != undefined) {
@@ -533,7 +329,9 @@ var EcareAnimation = (function () {
                         jQuery('#webpagediv' + options.ind).find(item.element).removeClass(item.classname);
                     });
                 }
-                document.getElementById("webpagediv" + options.ind).style.display = "none";
+                var element = document.getElementById("webpagediv" + options.ind);
+                if (element)
+                    element.style.display = "none";
             }
         });
     };
@@ -620,19 +418,26 @@ var EcareAnimation = (function () {
         core_1.Input('playing'), 
         __metadata('design:type', Boolean)
     ], EcareAnimation.prototype, "playing", void 0);
+    __decorate([
+        core_1.Input('data'), 
+        __metadata('design:type', Object)
+    ], EcareAnimation.prototype, "data", void 0);
+    __decorate([
+        core_1.Output('loaded'), 
+        __metadata('design:type', Object)
+    ], EcareAnimation.prototype, "loaded", void 0);
     EcareAnimation = __decorate([
         core_1.Component({
             selector: 'animation-ecare',
             templateUrl: 'build/components/animation/ecare/ecare.html',
-            providers: [article_1.ArticleService],
             directives: [open_1.Open]
         }), 
-        __metadata('design:paramtypes', [article_1.ArticleService])
+        __metadata('design:paramtypes', [])
     ], EcareAnimation);
     return EcareAnimation;
 }());
 exports.EcareAnimation = EcareAnimation;
-},{"../../../services/article/article":14,"../../open/open":6,"angular2/core":17}],4:[function(require,module,exports){
+},{"../../open/open":6,"angular2/core":17}],4:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
@@ -647,38 +452,14 @@ var core_1 = require('angular2/core');
 var http_1 = require('angular2/http');
 var open_1 = require('../../open/open');
 var HomeSolutionsAnimation = (function () {
-    // articleFile: any;
     function HomeSolutionsAnimation(http) {
         this.http = http;
         this.playing = false;
         this.scrubber = 0;
         var video = this;
-        //  video.articleFile='./interactive_'+document.location.search.split('=')[1]+'/output.wav';
     }
     HomeSolutionsAnimation.prototype.getArticles = function () {
         var ecareAnimation = this;
-        /* ecareAnimation.http.get('./interactive_poc/video.json')
-           .subscribe(function (data) {
-             let body = data.text();
-             ecareAnimation.data = JSON.parse(body) || {};
-             ecareAnimation.runVideo();
-           },
-           error => this.errorMessage = <any>error);
-           */
-    };
-    HomeSolutionsAnimation.prototype.play = function (playing) {
-        var video = this;
-        video.playing = playing;
-        if (video.playing)
-            video.pop.play();
-        else
-            video.pop.pause();
-        //      video.song.pause();
-    };
-    HomeSolutionsAnimation.prototype.scrub = function (e) {
-        var video = this;
-        var value = e.srcElement.value;
-        video.v.currentTime = value;
     };
     HomeSolutionsAnimation.prototype.ngOnInit = function () {
         var vid = document.getElementById("ourvideo");
@@ -690,7 +471,6 @@ var HomeSolutionsAnimation = (function () {
         };
         vid.onseeking = function () {
             jQuery('.animated').css('animation-play-state', 'paused');
-            // jQuery('.effect').css('animation-iteration-count','1');
         };
         jQuery('#closedCaptionBtn a').click(function () {
             if (jQuery('#closedCaption').hasClass('shown')) {
@@ -740,9 +520,6 @@ var HomeSolutionsAnimation = (function () {
         var video = this;
         var givenUser = this.getParameterByName('user');
         console.log(givenUser);
-        //var audio = jQuery("#ourvideo");
-        //	audio[0].pause();
-        //	audio[0].load();
         jQuery.get('data/' + givenUser.toUpperCase() + '.json', function (res) {
             var data = {};
             res.forEach(function (item) {
@@ -765,8 +542,6 @@ var HomeSolutionsAnimation = (function () {
                     }
                 };
             }
-            //jQuery(".userNameFirst").html(data.data.firstName);
-            //jQuery("#userNameLast").html(data.data.lastName);
             jQuery(".product").html(data.data.product);
             jQuery(".memory").html(data.data.memory);
             jQuery(".scheduledTime").html(data.data.scheduled);
@@ -1340,14 +1115,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('angular2/core');
-//import {ArticleService} from '../../services/article/article';
-//import { Open } from '../open/open';
+var article_1 = require('../../services/article/article');
 var ecare_1 = require('../../components/animation/ecare/ecare');
 var ecare_2 = require('../../components/animation/ecare2/ecare');
 var homesolutions_1 = require('../../components/animation/homesolutions/homesolutions');
-//declare var jQuery: JQueryStatic;
+var http_1 = require('angular2/http');
 var Video = (function () {
-    function Video() {
+    function Video(http, articleService) {
+        var _this = this;
+        this.http = http;
+        this.articleService = articleService;
         this.scrubber = 0;
         this.playing = false;
         this.urllist = [
@@ -1384,14 +1161,50 @@ var Video = (function () {
                 url: "?article=1500004587"
             }
         ];
+        this.isPOCReady = false;
+        this.isVideoReady = false;
+        this.notRunning = true;
         var video = this;
         var poc = document.location.search.split('=');
         video.poc = poc[0].substring(1);
-        if (video.poc === 'homesolutions')
+        if (video.poc === 'homesolutions') {
             video.articleFile = './interactive_homesolutions/vo9.mp3';
-        else
+        }
+        else if (video.poc === 'video') {
             video.articleFile = './interactive_' + poc[1] + '/output.wav';
+            video.articleService.getArticles()
+                .subscribe(function (data) {
+                video.data = data;
+                video.isVideoReady = true;
+            }, function (error) { return _this.errorMessage = error; });
+        }
+        else {
+            video.articleFile = './interactive_' + poc[1] + '/output.wav';
+            video.getArticles();
+        }
     }
+    Video.prototype.getArticles = function () {
+        var _this = this;
+        var video = this;
+        video.http.get('./interactive_poc/video.json')
+            .subscribe(function (data) {
+            var body = data.text();
+            video.data = JSON.parse(body) || {};
+            video.isPOCReady = true;
+        }, function (error) { return _this.errorMessage = error; });
+    };
+    Video.prototype.initVideo = function () {
+        var video = this;
+        video.v = document.getElementById("ourvideo");
+        if ((video.v) && video.notRunning) {
+            video.v.addEventListener('timeupdate', function () {
+                video.curtime = parseInt(video.v.currentTime, 10);
+                video.scrubber = video.curtime;
+            });
+            video.play(true);
+            video.notRunning = false;
+        }
+    };
     Video.prototype.play = function (playing) {
         var video = this;
         video.playing = playing;
@@ -1404,15 +1217,6 @@ var Video = (function () {
         var video = this;
         var value = e.srcElement.value;
         video.v.currentTime = value;
-    };
-    Video.prototype.ngOnInit = function () {
-        var video = this;
-        video.v = document.getElementById("ourvideo");
-        video.v.addEventListener('timeupdate', function () {
-            video.curtime = parseInt(video.v.currentTime, 10);
-            video.scrubber = video.curtime;
-        });
-        video.play(true);
     };
     Video.prototype.resize = function (size) {
         if (window.parent.document.getElementById('url-container') === null)
@@ -1444,14 +1248,15 @@ var Video = (function () {
         core_1.Component({
             selector: 'smart-video',
             templateUrl: 'build/components/video/video.html',
+            providers: [article_1.ArticleService],
             directives: [ecare_1.EcareAnimation, ecare_2.EcareAnimation2, homesolutions_1.HomeSolutionsAnimation]
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http, article_1.ArticleService])
     ], Video);
     return Video;
 }());
 exports.Video = Video;
-},{"../../components/animation/ecare/ecare":3,"../../components/animation/ecare2/ecare":2,"../../components/animation/homesolutions/homesolutions":4,"angular2/core":17}],9:[function(require,module,exports){
+},{"../../components/animation/ecare/ecare":3,"../../components/animation/ecare2/ecare":2,"../../components/animation/homesolutions/homesolutions":4,"../../services/article/article":14,"angular2/core":17,"angular2/http":18}],9:[function(require,module,exports){
 "use strict";
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;

@@ -1,64 +1,34 @@
-import {Component, Input} from 'angular2/core';
-import {ArticleService} from '../../../services/article/article';
+import {Component, Input, Output, EventEmitter} from 'angular2/core';
 import { Open } from '../../open/open';
 
 @Component({
   selector: 'animation-ecare',
   templateUrl: 'build/components/animation/ecare/ecare.html',
-  providers: [ArticleService],
   directives: [Open]
 })
 export class EcareAnimation {
   @Input('playing') playing: boolean=false;
+  @Input('data') data: any;
+  @Output('loaded') loaded = new EventEmitter();
   size: any;
   scrubber: any=0;
   curtime: any;
   pop: any ;
   v: any;
-  
-  
-    data: any ={"topicId":"","articleName":"","articleDescription":"","id":"","steps":{"step":[{"stepOrder":"1","stepContent":"To check and manage data usage, from the home screen, tap <strong>Settings<\/strong>.","stepNote":"To check your current month&#39;s data usage dial <strong>*data#<\/strong> (<strong>*3282#<\/strong>) on your mobile phone to receive a text message with the current bill cycle&#39;s usage.","imageLocation":"5015/9006183_01.jpg","frame":[2,20]},{"stepOrder":"2","stepContent":"Tap <strong>Cellular<\/strong>.","imageLocation":"5015/9006183_02.jpg","frame":[20,24]},{"stepOrder":"3","stepContent":"Scroll to view a list of apps and the amount of cellular data they have used.","stepNote":"The amount of data displayed is the amount used since the statistics were last reset. To reset the statistics, scroll to the bottom, then tap <strong>Reset Statistics<\/strong>.","imageLocation":"5015/9006183_03.jpg","frame":[24,41]},{"stepOrder":"4","stepContent":"To disable cellular data usage for an app, tap the <strong>Cellular data switch<\/strong> next to the app name.","stepNote":"Learn more from Apple support article: <a href=\"https://support.apple.com/en-us/HT201299\">Learn about cellular data settings and usage on your iPhone<\/a>","imageLocation":"5015/9006183_04.jpg","frame":[41,55]},{"stepOrder":"5","stepContent":"To turn <strong>Wi-Fi Assist<\/strong> (automatically use cellular data when Wi-Fi connectivity is poor) on or off, scroll to the bottom of the page, then tap the <strong>Wi-Fi Assist switch<\/strong>. &nbsp;<br />","stepNote":"Wi-Fi Assist regularly checks the Wi-Fi connection to determine signal strength. If the Wi-Fi signal strength drops below a specific range, Wi-Fi Assist will automatically switch the session to cellular data until the Wi-Fi signal improves. &nbsp;Wi-Fi Assist is an optional setting that is turned on by default and can be turned off at any time. Data rates apply for cellular connections. Learn more from Apple support article: <a href=\"https://support.apple.com/en-us/HT205296\">About Wi-Fi Assist<\/a>","imageLocation":"5015/9006183_05.jpg","frame":[55,57]}]},"url":"http://www.att.com/devicehowto/index.jsp?id=interactive_1500001423&make=Apple&model=Apple6sPlus"};
-
-
 
  // articleFile: any;
-  constructor(private articleService: ArticleService) {
+  constructor() {
     var video = this;
   //  video.articleFile='./interactive_'+document.location.search.split('=')[1]+'/output.wav';
   }
   errorMessage: string;
-  getArticles() {
-    var video = this;
-    this.articleService.getArticles()
-                     .subscribe(function(data) {
-                       video.data = data;
-                       video.runVideo();
-                     },
-                       error =>  this.errorMessage = <any>error);
-  }
   
-    
-    
-  play(playing) {
-    var video = this;
-    video.playing = playing;
-
-    if (video.playing)
-    video.pop.play();
-      //video.song.play();
-    else
-    video.pop.pause();
-//      video.song.pause();
-  }
-  scrub(e) {
-    var video = this;
-    var value = e.srcElement.value;
-    video.v.currentTime = value;
-  }
   ngOnInit() {
     var video = this;
-    this.getArticles();
     video.pop = Popcorn('#ourvideo');
+    
+    video.runVideo();
+    
     video.v = document.getElementById( "ourvideo" );
     
     video.pop.listen('timeupdate', function () {
@@ -66,6 +36,7 @@ export class EcareAnimation {
       video.scrubber = video.curtime;
     });
     
+    this.loaded.emit("event");
     
     /*
     video.play(true);
@@ -99,32 +70,6 @@ export class EcareAnimation {
           });*/
   }
 
-
-  resize(size) {
-    if (window.parent.document.getElementById('url-container')===null) return;
-    if (size==='fullscreen') {
-      window.parent.document.getElementById('url-container').style.width = '100%';
-    this.size = window.parent.document.getElementById('url-container').style.width;
-    }
-    if (size==='halfscreen') {
-      window.parent.document.getElementById('url-container').style.width = '1024px';
-    this.size = window.parent.document.getElementById('url-container').style.width;
-    }
-    if (size==='phone') {
-      window.parent.document.getElementById('url-container').style.width = '768px';
-    this.size = window.parent.document.getElementById('url-container').style.width;
-    }
-    if (size==='small') {
-      window.parent.document.getElementById('url-container').style.width = '320px';
-    this.size = window.parent.document.getElementById('url-container').style.width;
-    }
-  }
-  seconds(t) {
-    return (t % 60).toFixed(0);
-  }
-  minutes(t) {
-    return ~~(t / 60)
-  } 
   addFrame(index, start, end, animationClass) {
     var VideoObject = this;
       VideoObject.pop
@@ -154,7 +99,8 @@ export class EcareAnimation {
               });
 
             }
-            document.getElementById("webpagediv" + options.ind).style.display = "block";
+            var element = document.getElementById("webpagediv" + options.ind);
+            if (element) element.style.display = "block";
 
           },
           onEnd: function (options) {
@@ -171,8 +117,9 @@ export class EcareAnimation {
               });
             }
 
-            document.getElementById("webpagediv" + options.ind).style.display = "none";
-
+            var element = document.getElementById("webpagediv" + options.ind);
+            if (element) element.style.display = "none";
+           
           }
         });
     }

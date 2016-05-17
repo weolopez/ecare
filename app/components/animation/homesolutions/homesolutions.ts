@@ -16,42 +16,14 @@ export class HomeSolutionsAnimation {
 	pop: any;
 	v: any;
 
-	// articleFile: any;
 	constructor(private http: Http) {
 		var video = this;
-		//  video.articleFile='./interactive_'+document.location.search.split('=')[1]+'/output.wav';
 	}
 	errorMessage: string;
 	getArticles() {
 		var ecareAnimation = this;
-		/* ecareAnimation.http.get('./interactive_poc/video.json')
-		   .subscribe(function (data) {
-			 let body = data.text();
-			 ecareAnimation.data = JSON.parse(body) || {};
-			 ecareAnimation.runVideo();
-		   },
-		   error => this.errorMessage = <any>error);
-		   */
 	}
 
-
-
-	play(playing) {
-		var video = this;
-		video.playing = playing;
-
-		if (video.playing)
-			video.pop.play();
-		//video.song.play();
-		else
-			video.pop.pause();
-		//      video.song.pause();
-	}
-	scrub(e) {
-		var video = this;
-		var value = e.srcElement.value;
-		video.v.currentTime = value;
-	}
 	ngOnInit() {
 		var vid = document.getElementById("ourvideo");
 		vid.onpause = function () {
@@ -62,7 +34,6 @@ export class HomeSolutionsAnimation {
 		};
 		vid.onseeking = function () {
 			jQuery('.animated').css('animation-play-state', 'paused');
-			// jQuery('.effect').css('animation-iteration-count','1');
 		};
 		jQuery('#closedCaptionBtn a').click(function () {
 			if (jQuery('#closedCaption').hasClass('shown')) {
@@ -114,9 +85,6 @@ export class HomeSolutionsAnimation {
 		var video = this;
 		var givenUser = this.getParameterByName('user');
 		console.log(givenUser);
-		//var audio = jQuery("#ourvideo");
-		//	audio[0].pause();
-		//	audio[0].load();
 		jQuery.get('data/' + givenUser.toUpperCase() + '.json',
 
 			function (res) {
@@ -141,8 +109,6 @@ export class HomeSolutionsAnimation {
 						}
 					};
 				}
-				//jQuery(".userNameFirst").html(data.data.firstName);
-				//jQuery("#userNameLast").html(data.data.lastName);
 				jQuery(".product").html(data.data.product);
 				jQuery(".memory").html(data.data.memory);
 				jQuery(".scheduledTime").html(data.data.scheduled);
